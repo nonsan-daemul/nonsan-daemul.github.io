@@ -1,8 +1,42 @@
 import Image from "next/image";
+import { FaInstagram } from "react-icons/fa";
+import { HiOutlineShoppingBag, HiOutlineUserGroup } from "react-icons/hi2";
+import { SiNaver } from "react-icons/si";
 
 const mapUrl = "https://naver.me/xcgRV1Uf";
 const blogUrl = "https://blog.naver.com/daemul4100";
 const address = "충청남도 논산시 강변로308번길 48";
+
+const socialLinks = [
+  {
+    label: "Instagram",
+    handle: "@nonsan_daemul",
+    href: "https://www.instagram.com/nonsan_daemul",
+    icon: FaInstagram,
+    iconClass: "bg-[linear-gradient(135deg,#6f39b8,#dd2a7b_52%,#feda75)] text-white",
+  },
+  {
+    label: "네이버 블로그",
+    handle: "출조 · 매장 소식",
+    href: blogUrl,
+    icon: SiNaver,
+    iconClass: "bg-[#03c75a] text-white",
+  },
+  {
+    label: "네이버 스마트스토어",
+    handle: "온라인 구매",
+    href: "https://smartstore.naver.com/nonsandaemul",
+    icon: HiOutlineShoppingBag,
+    iconClass: "bg-[#00c73c] text-white",
+  },
+  {
+    label: "네이버 밴드",
+    handle: "대물낚시 커뮤니티",
+    href: "https://www.band.us/band/68307995/post",
+    icon: HiOutlineUserGroup,
+    iconClass: "bg-[#56b746] text-white",
+  },
+];
 
 const services = [
   {
@@ -51,7 +85,13 @@ const jsonLd = {
     addressCountry: "KR",
   },
   areaServed: ["논산시", "충청남도"],
-  sameAs: [blogUrl, mapUrl],
+  sameAs: [
+    "https://www.instagram.com/nonsan_daemul",
+    blogUrl,
+    "https://smartstore.naver.com/nonsandaemul",
+    "https://www.band.us/band/68307995/post",
+    mapUrl,
+  ],
 };
 
 export default function Home() {
@@ -282,6 +322,49 @@ export default function Home() {
         </p>
       </section>
 
+      <section className="bg-white px-5 py-20 md:px-10 md:py-24 lg:px-16" aria-labelledby="social-heading">
+        <div className="mx-auto max-w-[1312px]">
+          <div className="mb-10 flex flex-col justify-between gap-4 md:mb-12 md:flex-row md:items-end">
+            <div>
+              <p className="mb-4 text-sm font-black tracking-[0.16em] text-[#d83d1d]">FOLLOW &amp; SHOP</p>
+              <h2 id="social-heading" className="text-4xl font-black tracking-[-0.06em] text-[#071828] md:text-5xl">
+                온라인에서도 만나요.
+              </h2>
+            </div>
+            <p className="max-w-sm text-sm font-semibold leading-6 text-[#5a6872] md:text-right">
+              출조 소식부터 낚시용품 구매, 조사님들과의 커뮤니티까지 바로 연결됩니다.
+            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.label}
+                  className="group flex min-h-44 flex-col justify-between rounded-[1.6rem] border border-[#071828]/10 bg-[#f7f4ed] p-5 transition hover:-translate-y-1 hover:border-[#071828]/25 hover:shadow-[0_18px_45px_rgba(7,24,40,.1)] md:p-6"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${social.label} 새 탭에서 열기`}
+                >
+                  <div className="flex items-start justify-between">
+                    <span className={`flex size-12 items-center justify-center rounded-2xl text-2xl shadow-sm ${social.iconClass}`}>
+                      <Icon aria-hidden="true" />
+                    </span>
+                    <span className="flex size-9 items-center justify-center rounded-full border border-[#071828]/15 text-sm text-[#071828] transition group-hover:bg-[#071828] group-hover:text-white">↗</span>
+                  </div>
+                  <div>
+                    <p className="text-lg font-black tracking-[-0.035em] text-[#071828]">{social.label}</p>
+                    <p className="mt-1 text-sm font-bold text-[#73808a]">{social.handle}</p>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       <section id="location" className="bg-[#eee9de] px-5 py-24 md:px-10 md:py-32 lg:px-16 lg:py-40">
         <div className="mx-auto max-w-[1312px]">
           <div className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-end">
@@ -345,10 +428,25 @@ export default function Home() {
             </div>
             <p className="mt-4 text-sm font-medium text-white/45">{address} · 041-736-4100</p>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-bold text-white/65">
-            <a className="hover:text-white" href={blogUrl} target="_blank" rel="noreferrer">네이버 블로그</a>
-            <a className="hover:text-white" href={mapUrl} target="_blank" rel="noreferrer">네이버 지도</a>
-            <a className="hover:text-white" href="tel:041-736-4100">전화 문의</a>
+          <div className="flex flex-wrap items-center gap-2">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.label}
+                  className="flex size-10 items-center justify-center rounded-full border border-white/15 text-lg text-white/65 transition hover:-translate-y-0.5 hover:border-white/35 hover:bg-white hover:text-[#071828]"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${social.label} 새 탭에서 열기`}
+                  title={social.label}
+                >
+                  <Icon aria-hidden="true" />
+                </a>
+              );
+            })}
+            <a className="ml-2 text-sm font-bold text-white/65 hover:text-white" href={mapUrl} target="_blank" rel="noreferrer">네이버 지도</a>
+            <a className="text-sm font-bold text-white/65 hover:text-white" href="tel:041-736-4100">전화 문의</a>
           </div>
         </div>
         <div className="mx-auto mt-10 max-w-[1312px] text-xs font-semibold text-white/30">
