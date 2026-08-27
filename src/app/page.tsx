@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { MotionConfig, motion } from "framer-motion";
-import { type ReactNode, useEffect, useRef, useState } from "react";
+import { type FormEvent, type ReactNode, useEffect, useRef, useState } from "react";
 import { FaInstagram } from "react-icons/fa";
 import {
   HiCheck,
@@ -19,6 +19,7 @@ import { localeOptions, translations, type Locale } from "./translations";
 
 const mapUrl = "https://naver.me/xcgRV1Uf";
 const blogUrl = "https://blog.naver.com/daemul4100";
+const emailRecipients = ["k0729047@hanmail.net", "daemul4100@naver.com"];
 
 const socialLinks = [
   {
@@ -113,13 +114,13 @@ function Reveal({ children, className, delay = 0, direction = "up" }: RevealProp
 export default function Home() {
   const [locale, setLocale] = useState<Locale>("ko");
   const [languageOpen, setLanguageOpen] = useState(false);
+  const [senderEmail, setSenderEmail] = useState("");
+  const [emailSubject, setEmailSubject] = useState("");
+  const [emailMessage, setEmailMessage] = useState("");
   const languagePickerRef = useRef<HTMLDivElement>(null);
   const t = translations[locale];
   const currentLanguage = localeOptions.find((option) => option.code === locale)!;
   const headingTracking = locale === "ko" ? "tracking-[-0.075em]" : "tracking-[-0.04em]";
-  const emailHref = `mailto:k0729047@hanmail.net,daemul4100@naver.com?subject=${encodeURIComponent(
-    t.email.subject,
-  )}`;
 
   useEffect(() => {
     const savedLocale = window.localStorage.getItem("daemul-language");
@@ -161,6 +162,17 @@ export default function Home() {
   const changeLanguage = (nextLocale: Locale) => {
     setLocale(nextLocale);
     setLanguageOpen(false);
+  };
+
+  const openEmailApp = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const body = `${t.email.replyToLabel}: ${senderEmail.trim()}\n\n${emailMessage.trim()}`;
+    const mailtoUrl = `mailto:${emailRecipients.join(",")}?subject=${encodeURIComponent(
+      emailSubject.trim(),
+    )}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoUrl;
   };
 
   return (
@@ -587,32 +599,71 @@ export default function Home() {
             delay={0.08}
             className="rounded-[2rem] bg-[#071828] p-7 text-white shadow-[0_24px_70px_rgba(7,24,40,.24)] md:p-10"
           >
-            <div className="flex size-14 items-center justify-center rounded-2xl bg-[#ffc14f] text-2xl text-[#071828]">
-              <HiOutlineEnvelope aria-hidden="true" />
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+              <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-[#ffc14f] text-2xl text-[#071828]">
+                <HiOutlineEnvelope aria-hidden="true" />
+              </div>
+              <div className="min-w-0 sm:text-right">
+                <p className="text-xs font-black tracking-[0.1em] text-white/45">
+                  {t.email.recipientLabel}
+                </p>
+                <p className="mt-2 break-all text-xs font-bold leading-5 text-white/75">
+                  {emailRecipients.join(" · ")}
+                </p>
+              </div>
             </div>
-            <p className="mt-8 text-xs font-black tracking-[0.1em] text-white/45">
-              {t.email.recipientLabel}
-            </p>
-            <div className="mt-4 space-y-2">
-              <a
-                className="block break-all text-lg font-black text-white transition hover:text-[#ffc14f] md:text-xl"
-                href="mailto:k0729047@hanmail.net"
+
+            <form className="mt-8 space-y-5" onSubmit={openEmailApp}>
+              <label className="block">
+                <span className="mb-2 block text-sm font-black text-white/80">
+                  {t.email.senderLabel}
+                </span>
+                <input
+                  className="w-full rounded-2xl border border-white/15 bg-white/[.08] px-4 py-3.5 text-base font-semibold text-white outline-none transition placeholder:text-white/30 focus:border-[#ffc14f] focus:bg-white/[.12] focus:ring-4 focus:ring-[#ffc14f]/10"
+                  type="email"
+                  inputMode="email"
+                  autoComplete="email"
+                  value={senderEmail}
+                  onChange={(event) => setSenderEmail(event.target.value)}
+                  placeholder={t.email.senderPlaceholder}
+                  required
+                />
+              </label>
+
+              <label className="block">
+                <span className="mb-2 block text-sm font-black text-white/80">
+                  {t.email.subjectLabel}
+                </span>
+                <input
+                  className="w-full rounded-2xl border border-white/15 bg-white/[.08] px-4 py-3.5 text-base font-semibold text-white outline-none transition placeholder:text-white/30 focus:border-[#ffc14f] focus:bg-white/[.12] focus:ring-4 focus:ring-[#ffc14f]/10"
+                  type="text"
+                  value={emailSubject}
+                  onChange={(event) => setEmailSubject(event.target.value)}
+                  placeholder={t.email.subject}
+                  required
+                />
+              </label>
+
+              <label className="block">
+                <span className="mb-2 block text-sm font-black text-white/80">
+                  {t.email.messageLabel}
+                </span>
+                <textarea
+                  className="min-h-36 w-full resize-y rounded-2xl border border-white/15 bg-white/[.08] px-4 py-3.5 text-base font-semibold leading-7 text-white outline-none transition placeholder:text-white/30 focus:border-[#ffc14f] focus:bg-white/[.12] focus:ring-4 focus:ring-[#ffc14f]/10"
+                  value={emailMessage}
+                  onChange={(event) => setEmailMessage(event.target.value)}
+                  placeholder={t.email.messagePlaceholder}
+                  required
+                />
+              </label>
+
+              <button
+                className="flex w-full items-center justify-between gap-4 rounded-full bg-[#ffc14f] px-5 py-3.5 text-sm font-black text-[#071828] transition hover:-translate-y-0.5 hover:bg-white active:translate-y-0"
+                type="submit"
               >
-                k0729047@hanmail.net
-              </a>
-              <a
-                className="block break-all text-lg font-black text-white transition hover:text-[#ffc14f] md:text-xl"
-                href="mailto:daemul4100@naver.com"
-              >
-                daemul4100@naver.com
-              </a>
-            </div>
-            <a
-              className="mt-8 flex items-center justify-between gap-4 rounded-full bg-[#ffc14f] px-5 py-3.5 text-sm font-black text-[#071828] transition hover:-translate-y-0.5 hover:bg-white"
-              href={emailHref}
-            >
-              {t.email.cta} <span>↗</span>
-            </a>
+                {t.email.cta} <HiOutlineEnvelope className="text-lg" aria-hidden="true" />
+              </button>
+            </form>
             <p className="mt-4 text-xs font-semibold leading-5 text-white/45">{t.email.note}</p>
           </Reveal>
         </div>
