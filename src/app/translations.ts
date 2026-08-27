@@ -11,7 +11,6 @@ export type Translation = {
     title: [string, string];
     description: string;
     locationCta: string;
-    blogCta: string;
     alt: string;
   };
   about: {
@@ -116,7 +115,6 @@ export const translations: Record<Locale, Translation> = {
       description:
         "안녕하세요? 논산 최대 규모의 민물/바다/루어 낚시 전문, 바다낚시 수시 출조 전문점. 대물낚시입니다.",
       locationCta: "매장 위치 보기",
-      blogCta: "바다낚시 사진 보기",
       alt: "논산 대물낚시 매장 전경과 출조용 보트",
     },
     about: {
@@ -221,7 +219,6 @@ export const translations: Record<Locale, Translation> = {
       description:
         "Welcome to Daemul Fishing, Nonsan’s largest fishing tackle store. Browse everything you need for freshwater and sea fishing, and feel free to ask us anything.",
       locationCta: "Find the store",
-      blogCta: "Latest trip updates",
       alt: "Daemul Fishing storefront in Nonsan with its fishing trip boat",
     },
     about: {
@@ -325,7 +322,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["想钓得开心，", "先把装备准备好。"],
       description: "这里是论山规模最大的渔具店——大物渔具。淡水钓、海钓所需的装备都可以慢慢挑选，有任何问题都欢迎来问我们。",
       locationCta: "查看店铺位置",
-      blogCta: "查看最新出钓动态",
       alt: "论山大物渔具店外景与出海钓鱼船",
     },
     about: {
@@ -415,7 +411,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["釣りを楽しむなら、", "準備からしっかり。"],
       description: "論山最大規模の釣具店、大物釣具です。淡水から海釣りまで、必要な道具をゆっくり選んでいただけます。分からないことは何でも気軽にお尋ねください。",
       locationCta: "店舗の場所を見る",
-      blogCta: "最近の釣行を見る",
       alt: "論山の大物釣具の店舗外観と釣行用ボート",
     },
     about: {
@@ -505,7 +500,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["Một buổi câu vui", "bắt đầu từ chuẩn bị tốt."],
       description: "Daemul là cửa hàng đồ câu cá lớn nhất Nonsan. Từ câu nước ngọt đến câu biển, bạn có thể thoải mái chọn đồ cần thiết và hỏi chúng tôi bất cứ điều gì.",
       locationCta: "Xem vị trí cửa hàng",
-      blogCta: "Tin chuyến câu mới",
       alt: "Mặt tiền cửa hàng Daemul Fishing ở Nonsan và thuyền đi câu",
     },
     about: {
@@ -595,7 +589,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["Yaxshi baliq ovi", "to‘g‘ri tayyorgarlikdan boshlanadi."],
       description: "Daemul — Nonsandagi eng yirik baliq ovlash anjomlari do‘koni. Chuchuk suvdan dengizgacha kerakli jihozlarni bemalol tanlang va savollaringizni bizdan so‘rang.",
       locationCta: "Do‘kon manzili",
-      blogCta: "So‘nggi safarlar",
       alt: "Nonsandagi Daemul Fishing do‘koni va baliq ovlash qayig‘i",
     },
     about: {
@@ -685,7 +678,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["Хорошая рыбалка", "начинается с подготовки."],
       description: "Daemul — крупнейший магазин рыболовных снастей в Нонсане. Здесь есть всё для пресноводной и морской рыбалки, а мы всегда готовы ответить на ваши вопросы.",
       locationCta: "Найти магазин",
-      blogCta: "Новости выездов",
       alt: "Магазин Daemul Fishing в Нонсане и лодка для рыбалки",
     },
     about: {
@@ -775,7 +767,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["ការនេសាទដ៏ល្អ", "ចាប់ផ្តើមពីការរៀបចំល្អ។"],
       description: "Daemul ជាហាងសម្ភារៈនេសាទធំបំផុតនៅ Nonsan។ មានសម្ភារៈសម្រាប់ទឹកសាប និងសមុទ្រ ហើយអ្នកអាចសួរយើងបានដោយសេរី។",
       locationCta: "មើលទីតាំងហាង",
-      blogCta: "ព័ត៌មានដំណើរថ្មីៗ",
       alt: "ហាង Daemul Fishing នៅ Nonsan និងទូកនេសាទ",
     },
     about: {
@@ -865,7 +856,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["ပျော်စရာငါးမျှားခြင်းက", "ကောင်းမွန်တဲ့ပြင်ဆင်မှုကနေစတင်ပါတယ်။"],
       description: "Daemul သည် Nonsan ရှိ အကြီးဆုံးငါးမျှားပစ္စည်းဆိုင် ဖြစ်ပါတယ်။ ရေချိုနဲ့ ပင်လယ်ငါးမျှားအတွက် လိုအပ်သမျှကို အေးအေးဆေးဆေးရွေးချယ်ပြီး မသိတာရှိရင် မေးနိုင်ပါတယ်။",
       locationCta: "ဆိုင်တည်နေရာကြည့်ရန်",
-      blogCta: "နောက်ဆုံးခရီးသတင်း",
       alt: "Nonsan Daemul Fishing ဆိုင်ရှေ့နှင့် ငါးမျှားလှေ",
     },
     about: {
