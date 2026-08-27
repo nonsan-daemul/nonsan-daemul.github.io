@@ -617,7 +617,7 @@ export default function Home() {
         aria-labelledby="social-heading"
       >
         <div className="mx-auto max-w-[1312px]">
-          <Reveal className="mb-10 flex flex-col justify-between gap-4 md:mb-12 md:flex-row md:items-end">
+          <Reveal className="mb-10 md:mb-12">
             <div>
               <p className="mb-4 text-sm font-black tracking-[0.12em] text-[#d83d1d]">
                 {t.social.eyebrow}
@@ -629,9 +629,6 @@ export default function Home() {
                 {t.social.title}
               </h2>
             </div>
-            <p className="max-w-md text-sm font-semibold leading-6 text-[#5a6872] md:text-right">
-              {t.social.description}
-            </p>
           </Reveal>
 
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
@@ -716,18 +713,8 @@ export default function Home() {
             delay={0.08}
             className="rounded-[2rem] bg-[#071828] p-7 text-white shadow-[0_24px_70px_rgba(7,24,40,.24)] md:p-10"
           >
-            <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-              <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-[#ffc14f] text-2xl text-[#071828]">
-                <HiOutlineEnvelope aria-hidden="true" />
-              </div>
-              <div className="min-w-0 sm:text-right">
-                <p className="text-xs font-black tracking-[0.1em] text-white/45">
-                  {t.email.recipientLabel}
-                </p>
-                <p className="mt-2 break-all text-xs font-bold leading-5 text-white/75">
-                  {emailRecipients.join(" · ")}
-                </p>
-              </div>
+            <div className="flex size-14 items-center justify-center rounded-2xl bg-[#ffc14f] text-2xl text-[#071828]">
+              <HiOutlineEnvelope aria-hidden="true" />
             </div>
 
             <form className="mt-8 space-y-5" onSubmit={openEmailApp}>
@@ -864,7 +851,12 @@ export default function Home() {
       <footer className="bg-[#071828] px-5 pb-28 pt-10 text-white md:px-10 md:py-10 lg:px-16">
         <div className="mx-auto flex max-w-[1312px] flex-col gap-8 border-t border-white/15 pt-9 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-lg font-black tracking-[-0.03em]">{t.brand}</p>
+            <p className="flex flex-wrap items-center gap-3 text-lg font-black tracking-[-0.03em]">
+              {t.brand}
+              <span className="rounded-full border border-[#ffc14f]/35 bg-[#ffc14f]/10 px-3 py-1 text-xs tracking-[0.08em] text-[#ffc14f]">
+                Since 2004
+              </span>
+            </p>
             <p className="mt-4 max-w-2xl text-sm font-medium leading-6 text-white/45">
               {t.location.address} · 041-736-4100
             </p>

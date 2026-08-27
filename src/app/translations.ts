@@ -54,7 +54,6 @@ export type Translation = {
   social: {
     eyebrow: string;
     title: string;
-    description: string;
     labels: [string, string, string, string, string];
     handles: [string, string, string, string, string];
     openNewTab: string;
@@ -64,7 +63,6 @@ export type Translation = {
     title: [string, string];
     description: string;
     topics: [string, string, string];
-    recipientLabel: string;
     senderLabel: string;
     senderPlaceholder: string;
     subjectLabel: string;
@@ -199,8 +197,7 @@ export const translations: Record<Locale, Translation> = {
     marquee: "낚시용품 · 낚싯대 수리 · 바다 출조 · 채비 상담 · 논산 대물낚시",
     social: {
       eyebrow: "새 소식과 온라인 가게",
-      title: "인터넷에서도 만나요.",
-      description: "새 소식도 보고, 낚시용품도 살 수 있어요. 궁금한 건 카카오톡으로 물어보세요.",
+      title: "논산 대물낚시를 여러곳에서 만나보세요.",
       labels: ["Instagram", "네이버 블로그", "네이버 스마트스토어", "네이버 밴드", "카카오톡"],
       handles: ["사진을 봐요", "새 소식을 봐요", "낚시용품을 사요", "함께 이야기해요", "바로 물어봐요"],
       openNewTab: "새 탭에서 열기",
@@ -210,7 +207,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["메일로 물어봐도", "괜찮아요."],
       description: "필요한 물건이 있는지, 낚싯대를 고칠 수 있는지, 언제 바다에 가는지 물어보세요. 확인하고 답장해드릴게요.",
       topics: ["물건이 있나요?", "낚싯대를 고칠 수 있나요?", "언제 바다에 가나요?"],
-      recipientLabel: "메일을 받는 곳",
       senderLabel: "내 이메일",
       senderPlaceholder: "답장받을 이메일을 적어주세요",
       subjectLabel: "제목",
@@ -315,7 +311,6 @@ export const translations: Record<Locale, Translation> = {
     social: {
       eyebrow: "FOLLOW & SHOP",
       title: "Find us online too.",
-      description: "Catch up on trip news, shop for fishing gear, or message us directly.",
       labels: ["Instagram", "Naver Blog", "Naver Smart Store", "Naver Band", "KakaoTalk"],
       handles: ["Photos and updates", "Trips and store news", "Shop fishing gear online", "Join our community", "Message us directly"],
       openNewTab: "Open in a new tab",
@@ -325,7 +320,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["Have a question?", "Send us an email anytime."],
       description: "Ask about product availability, fishing rod repairs, or upcoming sea trips. We will check your message and get back to you.",
       topics: ["Product stock", "Rod repairs", "Fishing trips"],
-      recipientLabel: "Email recipients",
       senderLabel: "Your email",
       senderPlaceholder: "Enter an email where we can reply",
       subjectLabel: "Subject",
@@ -415,7 +409,6 @@ export const translations: Record<Locale, Translation> = {
     social: {
       eyebrow: "关注与在线购买",
       title: "线上也能轻松找到我们。",
-      description: "查看出钓动态、在线购买渔具，也可以直接给我们留言。",
       labels: ["Instagram", "Naver博客", "Naver智能商店", "Naver Band", "KakaoTalk"],
       handles: ["照片与动态", "出钓与店铺消息", "在线购买渔具", "加入钓友社区", "直接在线咨询"],
       openNewTab: "在新标签页中打开",
@@ -425,7 +418,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["有想了解的内容，", "也可以随时发邮件给我们。"],
       description: "无论是商品库存、钓竿维修还是出钓安排，都可以提前来信咨询。我们确认后会尽快回复。",
       topics: ["商品库存", "钓竿维修", "出钓咨询"],
-      recipientLabel: "咨询邮件收件地址",
       senderLabel: "您的邮箱",
       senderPlaceholder: "请输入用于接收回复的邮箱",
       subjectLabel: "主题",
@@ -515,7 +507,6 @@ export const translations: Record<Locale, Translation> = {
     social: {
       eyebrow: "フォロー・オンライン購入",
       title: "オンラインでもお会いしましょう。",
-      description: "釣行情報のチェック、釣り用品の購入、直接のお問い合わせはこちらから。",
       labels: ["Instagram", "Naverブログ", "Naverスマートストア", "Naver Band", "KakaoTalk"],
       handles: ["写真とお知らせ", "釣行・店舗情報", "釣り用品をオンライン購入", "釣り仲間のコミュニティ", "気軽にメッセージ"],
       openNewTab: "新しいタブで開く",
@@ -525,7 +516,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["気になることは、", "メールでもお気軽にどうぞ。"],
       description: "商品の在庫、釣り竿の修理、釣行予定など、事前に確認したいことをお送りください。確認後にご返信します。",
       topics: ["商品の在庫", "釣り竿の修理", "釣行のお問い合わせ"],
-      recipientLabel: "お問い合わせ先メールアドレス",
       senderLabel: "あなたのメールアドレス",
       senderPlaceholder: "返信を受け取るアドレスを入力",
       subjectLabel: "件名",
@@ -615,7 +605,6 @@ export const translations: Record<Locale, Translation> = {
     social: {
       eyebrow: "THEO DÕI & MUA SẮM",
       title: "Gặp chúng tôi cả trên mạng.",
-      description: "Xem tin chuyến câu, mua dụng cụ hoặc nhắn trực tiếp cho chúng tôi.",
       labels: ["Instagram", "Naver Blog", "Naver Smart Store", "Naver Band", "KakaoTalk"],
       handles: ["Ảnh và tin mới", "Tin chuyến câu và cửa hàng", "Mua đồ câu trực tuyến", "Cộng đồng người câu cá", "Nhắn tin trực tiếp"],
       openNewTab: "Mở trong tab mới",
@@ -625,7 +614,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["Có điều muốn hỏi?", "Cứ gửi email cho chúng tôi."],
       description: "Bạn có thể hỏi trước về hàng còn trong kho, sửa cần câu hoặc lịch đi câu biển. Chúng tôi sẽ kiểm tra và phản hồi.",
       topics: ["Hàng còn trong kho", "Sửa cần câu", "Chuyến câu biển"],
-      recipientLabel: "Địa chỉ nhận email",
       senderLabel: "Email của bạn",
       senderPlaceholder: "Nhập email để nhận phản hồi",
       subjectLabel: "Tiêu đề",
@@ -715,7 +703,6 @@ export const translations: Record<Locale, Translation> = {
     social: {
       eyebrow: "KUZATING VA XARID QILING",
       title: "Bizni onlayn ham toping.",
-      description: "Safar yangiliklarini ko‘ring, jihoz xarid qiling yoki bizga yozing.",
       labels: ["Instagram", "Naver Blog", "Naver Smart Store", "Naver Band", "KakaoTalk"],
       handles: ["Suratlar va yangiliklar", "Safar va do‘kon xabarlari", "Onlayn jihoz xaridi", "Baliqchilar hamjamiyati", "To‘g‘ridan-to‘g‘ri yozing"],
       openNewTab: "Yangi oynada ochish",
@@ -725,7 +712,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["Savolingiz bormi?", "Bizga email yuboring."],
       description: "Mahsulot mavjudligi, qarmoq tayoqchasini ta’mirlash yoki dengiz safari haqida oldindan so‘rashingiz mumkin. Xabaringizni ko‘rib, javob beramiz.",
       topics: ["Mahsulot mavjudligi", "Tayoqcha ta’miri", "Dengiz safari"],
-      recipientLabel: "Email qabul qiluvchilar",
       senderLabel: "Email manzilingiz",
       senderPlaceholder: "Javob olish uchun emailingizni kiriting",
       subjectLabel: "Mavzu",
@@ -815,7 +801,6 @@ export const translations: Record<Locale, Translation> = {
     social: {
       eyebrow: "СОЦСЕТИ И ПОКУПКИ",
       title: "Мы всегда на связи онлайн.",
-      description: "Следите за выездами, покупайте снасти или напишите нам напрямую.",
       labels: ["Instagram", "Naver Blog", "Naver Smart Store", "Naver Band", "KakaoTalk"],
       handles: ["Фото и новости", "Выезды и новости магазина", "Снасти онлайн", "Сообщество рыболовов", "Написать напрямую"],
       openNewTab: "Открыть в новой вкладке",
@@ -825,7 +810,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["Остались вопросы?", "Напишите нам по электронной почте."],
       description: "Можно заранее уточнить наличие товара, ремонт удилища или расписание морских выездов. Мы прочитаем сообщение и ответим.",
       topics: ["Наличие товара", "Ремонт удилищ", "Морские выезды"],
-      recipientLabel: "Адреса получателей",
       senderLabel: "Ваш email",
       senderPlaceholder: "Введите email для ответа",
       subjectLabel: "Тема",
@@ -915,7 +899,6 @@ export const translations: Record<Locale, Translation> = {
     social: {
       eyebrow: "តាមដាន និងទិញ",
       title: "ជួបយើងតាមអនឡាញផងដែរ។",
-      description: "មើលព័ត៌មានដំណើរ ទិញសម្ភារៈ ឬផ្ញើសារមកយើងដោយផ្ទាល់។",
       labels: ["Instagram", "Naver Blog", "Naver Smart Store", "Naver Band", "KakaoTalk"],
       handles: ["រូបថត និងព័ត៌មាន", "ដំណើរ និងព័ត៌មានហាង", "ទិញសម្ភារៈអនឡាញ", "សហគមន៍អ្នកនេសាទ", "ផ្ញើសារផ្ទាល់"],
       openNewTab: "បើកក្នុងផ្ទាំងថ្មី",
@@ -925,7 +908,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["មានសំណួរមែនទេ?", "សូមផ្ញើអ៊ីមែលមកយើង។"],
       description: "អ្នកអាចសួរអំពីស្តុកសម្ភារៈ ការជួសជុលដងសន្ទូច ឬកាលវិភាគដំណើរនេសាទសមុទ្រ។ យើងនឹងពិនិត្យ ហើយឆ្លើយតប។",
       topics: ["ស្តុកសម្ភារៈ", "ជួសជុលដង", "ដំណើរសមុទ្រ"],
-      recipientLabel: "អាសយដ្ឋានទទួលអ៊ីមែល",
       senderLabel: "អ៊ីមែលរបស់អ្នក",
       senderPlaceholder: "បញ្ចូលអ៊ីមែលសម្រាប់ទទួលចម្លើយ",
       subjectLabel: "ចំណងជើង",
@@ -1015,7 +997,6 @@ export const translations: Record<Locale, Translation> = {
     social: {
       eyebrow: "သတင်းနှင့် အွန်လိုင်းဝယ်ယူမှု",
       title: "အွန်လိုင်းမှာလည်း တွေ့နိုင်ပါတယ်။",
-      description: "ခရီးသတင်းကြည့်ရန်၊ ပစ္စည်းဝယ်ရန် သို့မဟုတ် တိုက်ရိုက်စာပို့ရန် ဒီနေရာကနေဝင်ပါ။",
       labels: ["Instagram", "Naver Blog", "Naver Smart Store", "Naver Band", "KakaoTalk"],
       handles: ["ဓာတ်ပုံနှင့်သတင်း", "ခရီးနှင့်ဆိုင်သတင်း", "အွန်လိုင်းပစ္စည်းဝယ်ရန်", "ငါးမျှားသူများအဖွဲ့", "တိုက်ရိုက်စာပို့ရန်"],
       openNewTab: "တက်ဘ်အသစ်တွင်ဖွင့်ရန်",
@@ -1025,7 +1006,6 @@ export const translations: Record<Locale, Translation> = {
       title: ["မေးစရာရှိပါသလား?", "အီးမေးလ်ပို့လို့လည်း ရပါတယ်။"],
       description: "ပစ္စည်းလက်ကျန်၊ ငါးမျှားတံပြုပြင်ခြင်း သို့မဟုတ် ပင်လယ်ခရီးအစီအစဉ်ကို ကြိုတင်မေးမြန်းနိုင်ပါတယ်။ စာကိုစစ်ဆေးပြီး ပြန်လည်ဖြေကြားပေးပါမယ်။",
       topics: ["ပစ္စည်းလက်ကျန်", "တံပြုပြင်ခြင်း", "ပင်လယ်ခရီး"],
-      recipientLabel: "အီးမေးလ်လက်ခံမည့်လိပ်စာများ",
       senderLabel: "သင့်အီးမေးလ်",
       senderPlaceholder: "အကြောင်းပြန်ရန် အီးမေးလ်ထည့်ပါ",
       subjectLabel: "ခေါင်းစဉ်",
