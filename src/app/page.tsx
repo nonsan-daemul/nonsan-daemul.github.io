@@ -8,6 +8,7 @@ import {
   HiChevronUp,
   HiOutlineEnvelope,
   HiOutlineLanguage,
+  HiOutlineMapPin,
   HiOutlinePhone,
   HiOutlineShoppingBag,
   HiOutlineUserGroup,
@@ -631,14 +632,6 @@ export default function Home() {
                 >
                   {t.location.mapCta} <span>↗</span>
                 </a>
-                <a
-                  className="flex items-center justify-between gap-4 rounded-full border border-white/20 px-5 py-3.5 text-sm font-black transition hover:bg-white hover:text-[#071828]"
-                  href={blogUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {t.location.blogCta} <span>↗</span>
-                </a>
               </div>
             </div>
           </div>
@@ -671,18 +664,22 @@ export default function Home() {
               );
             })}
             <a
-              className="ml-2 text-sm font-bold text-white/65 hover:text-white"
+              className="flex size-10 items-center justify-center rounded-full border border-white/15 text-lg text-white/65 transition hover:-translate-y-0.5 hover:border-white/35 hover:bg-white hover:text-[#03a94b]"
               href={mapUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={t.footer.map}
+              title={t.footer.map}
             >
-              {t.footer.map}
+              <HiOutlineMapPin aria-hidden="true" />
             </a>
             <a
-              className="text-sm font-bold text-white/65 hover:text-white"
+              className="flex size-10 items-center justify-center rounded-full border border-white/15 text-lg text-white/65 transition hover:-translate-y-0.5 hover:border-white/35 hover:bg-white hover:text-[#ff4e27]"
               href="tel:041-736-4100"
+              aria-label={t.footer.call}
+              title={t.footer.call}
             >
-              {t.footer.call}
+              <HiOutlinePhone aria-hidden="true" />
             </a>
           </div>
         </div>
