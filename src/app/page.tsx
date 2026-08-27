@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { MotionConfig, motion } from "framer-motion";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { FaInstagram } from "react-icons/fa";
 import {
   HiCheck,
@@ -81,6 +82,34 @@ const jsonLd = {
 const isLocale = (value: string): value is Locale =>
   localeOptions.some((option) => option.code === value);
 
+type RevealProps = {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  direction?: "up" | "left" | "right";
+};
+
+function Reveal({ children, className, delay = 0, direction = "up" }: RevealProps) {
+  const offset =
+    direction === "left"
+      ? { x: -42, y: 0 }
+      : direction === "right"
+        ? { x: 42, y: 0 }
+        : { x: 0, y: 36 };
+
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, ...offset }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once: true, amount: 0.16, margin: "0px 0px -60px 0px" }}
+      transition={{ duration: 0.68, delay, ease: [0.16, 1, 0.3, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export default function Home() {
   const [locale, setLocale] = useState<Locale>("ko");
   const [languageOpen, setLanguageOpen] = useState(false);
@@ -135,7 +164,8 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <MotionConfig reducedMotion="user">
+      <main>
       <header className="absolute inset-x-0 top-0 z-20">
         <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4 px-5 py-5 md:px-10 lg:px-16">
           <a
@@ -172,20 +202,32 @@ export default function Home() {
 
       <section
         id="top"
-        className="relative isolate flex min-h-[780px] items-end overflow-hidden bg-[#071828] lg:min-h-[860px]"
+        className="relative isolate flex min-h-[720px] items-end overflow-hidden bg-[#071828] sm:min-h-[780px] lg:min-h-[860px]"
       >
-        <Image
-          src="/images/store-front.webp"
-          alt={t.hero.alt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[53%_48%]"
-        />
+        <motion.div
+          className="absolute inset-0"
+          initial={{ scale: 1.06 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <Image
+            src="/images/store-front.webp"
+            alt={t.hero.alt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[53%_48%]"
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,11,21,.30)_0%,rgba(3,12,21,.10)_30%,rgba(3,13,23,.92)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_18%,rgba(55,162,224,.17),transparent_35%)]" />
 
-        <div className="relative mx-auto w-full max-w-[1440px] px-5 pb-14 md:px-10 md:pb-20 lg:px-16 lg:pb-24">
+        <motion.div
+          className="relative mx-auto w-full max-w-[1440px] px-5 pb-14 md:px-10 md:pb-20 lg:px-16 lg:pb-24"
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className="mb-5 flex items-center gap-3 text-sm font-black tracking-[0.12em] text-[#ffc14f]">
             <span className="h-px w-9 bg-[#ffc14f]" />
             {t.hero.eyebrow}
@@ -201,9 +243,9 @@ export default function Home() {
             <p className="max-w-2xl text-base font-medium leading-7 text-white/80 md:text-lg">
               {t.hero.description}
             </p>
-            <div className="flex shrink-0 flex-wrap gap-3">
+            <div className="flex w-full shrink-0 flex-col gap-3 sm:w-auto sm:flex-row">
               <a
-                className="rounded-full bg-[#ff4e27] px-6 py-3.5 text-sm font-black text-white shadow-xl shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[#f04420]"
+                className="w-full rounded-full bg-[#ff4e27] px-6 py-3.5 text-center text-sm font-black text-white shadow-xl shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[#f04420] sm:w-auto"
                 href={mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -211,7 +253,7 @@ export default function Home() {
                 {t.hero.locationCta} ↗
               </a>
               <a
-                className="rounded-full bg-white px-6 py-3.5 text-sm font-black text-slate-950 transition hover:-translate-y-0.5 hover:bg-[#fff5df]"
+                className="w-full rounded-full bg-white px-6 py-3.5 text-center text-sm font-black text-slate-950 transition hover:-translate-y-0.5 hover:bg-[#fff5df] sm:w-auto"
                 href={blogUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -220,7 +262,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section
@@ -228,7 +270,7 @@ export default function Home() {
         className="bg-[#f2eee5] px-5 py-20 md:px-10 md:py-28 lg:px-16 lg:py-32"
       >
         <div className="mx-auto max-w-[1312px]">
-          <div className="grid gap-14 lg:grid-cols-[1.08fr_.92fr] lg:gap-24">
+          <Reveal className="grid gap-14 lg:grid-cols-[1.08fr_.92fr] lg:gap-24">
             <div>
               <p className="mb-8 text-sm font-black tracking-[0.12em] text-[#d83d1d]">
                 {t.about.eyebrow}
@@ -263,9 +305,12 @@ export default function Home() {
                 <p className="mt-3 text-sm font-extrabold text-[#52606a]">{t.about.stats[3]}</p>
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="relative mt-20 overflow-hidden rounded-[2.2rem] md:mt-28">
+          <Reveal
+            className="relative mt-20 overflow-hidden rounded-[2.2rem] md:mt-28"
+            delay={0.08}
+          >
             <Image
               src="/images/store-wide.webp"
               alt={t.about.storeAlt}
@@ -280,13 +325,13 @@ export default function Home() {
                 {t.about.caption}
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="bg-white px-5 py-20 md:px-10 md:py-28 lg:px-16 lg:py-32">
         <div className="mx-auto max-w-[1312px]">
-          <div className="mb-14 flex flex-col justify-between gap-5 md:mb-20 md:flex-row md:items-end">
+          <Reveal className="mb-14 flex flex-col justify-between gap-5 md:mb-20 md:flex-row md:items-end">
             <div>
               <p className="mb-5 text-sm font-black tracking-[0.12em] text-[#d83d1d]">
                 {t.services.eyebrow}
@@ -302,13 +347,21 @@ export default function Home() {
             <p className="max-w-md text-base font-semibold leading-7 text-[#5a6872]">
               {t.services.description}
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid border-t border-[#071828] md:grid-cols-3">
             {t.services.items.map((service, index) => (
-              <article
+              <motion.article
                 key={service.title}
                 className="border-b border-[#071828]/20 py-9 md:border-r md:px-8 md:py-12 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.18 }}
+                transition={{
+                  duration: 0.55,
+                  delay: index * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
               >
                 <div className="mb-12 flex items-center gap-3 md:mb-16">
                   <span className="text-sm font-black text-[#ff4e27]">
@@ -332,7 +385,7 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>
@@ -346,7 +399,7 @@ export default function Home() {
         <div className="absolute -bottom-80 -left-40 size-[680px] rounded-full border border-white/10" />
         <div className="relative mx-auto max-w-[1312px]">
           <div className="grid gap-14 lg:grid-cols-[.85fr_1.15fr] lg:items-end lg:gap-24">
-            <div className="relative overflow-hidden rounded-[2rem]">
+            <Reveal direction="left" className="relative overflow-hidden rounded-[2rem]">
               <Image
                 src="/images/store-front.webp"
                 alt={t.trips.boatAlt}
@@ -360,14 +413,14 @@ export default function Home() {
                 <p className="text-7xl font-black tracking-[-0.08em] text-[#ffc14f] md:text-8xl">10</p>
                 <p className="mt-1 text-lg font-black">{t.trips.boatLabel}</p>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="pb-2">
+            <Reveal direction="right" delay={0.08} className="pb-2">
               <p className="mb-6 text-sm font-black tracking-[0.12em] text-[#ffc14f]">
                 {t.trips.eyebrow}
               </p>
               <h2
-                className={`text-[clamp(2.7rem,5.7vw,6.3rem)] font-black leading-[0.98] ${headingTracking}`}
+                className={`text-[clamp(2.35rem,5.7vw,6.3rem)] font-black leading-[0.98] ${headingTracking}`}
               >
                 {t.trips.title[0]}
                 <br />
@@ -409,15 +462,15 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-10 flex flex-wrap gap-3">
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <a
-                  className="rounded-full bg-[#ff4e27] px-6 py-3.5 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-[#f04420]"
+                  className="rounded-full bg-[#ff4e27] px-6 py-3.5 text-center text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-[#f04420]"
                   href="tel:041-736-4100"
                 >
                   {t.trips.inquiry}
                 </a>
                 <a
-                  className="rounded-full border border-white/25 px-6 py-3.5 text-sm font-black text-white transition hover:bg-white hover:text-[#071828]"
+                  className="rounded-full border border-white/25 px-6 py-3.5 text-center text-sm font-black text-white transition hover:bg-white hover:text-[#071828]"
                   href={blogUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -425,7 +478,7 @@ export default function Home() {
                   {t.trips.news} ↗
                 </a>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -435,7 +488,7 @@ export default function Home() {
         aria-labelledby="social-heading"
       >
         <div className="mx-auto max-w-[1312px]">
-          <div className="mb-10 flex flex-col justify-between gap-4 md:mb-12 md:flex-row md:items-end">
+          <Reveal className="mb-10 flex flex-col justify-between gap-4 md:mb-12 md:flex-row md:items-end">
             <div>
               <p className="mb-4 text-sm font-black tracking-[0.12em] text-[#d83d1d]">
                 {t.social.eyebrow}
@@ -450,19 +503,27 @@ export default function Home() {
             <p className="max-w-md text-sm font-semibold leading-6 text-[#5a6872] md:text-right">
               {t.social.description}
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {socialLinks.map((social, index) => {
               const Icon = social.icon;
               return (
-                <a
+                <motion.a
                   key={social.href}
-                  className="group flex min-h-44 flex-col justify-between rounded-[1.6rem] border border-[#071828]/10 bg-[#f7f4ed] p-5 transition hover:-translate-y-1 hover:border-[#071828]/25 hover:shadow-[0_18px_45px_rgba(7,24,40,.1)]"
+                  className="group flex min-h-40 flex-col justify-between rounded-[1.6rem] border border-[#071828]/10 bg-[#f7f4ed] p-5 transition hover:-translate-y-1 hover:border-[#071828]/25 hover:shadow-[0_18px_45px_rgba(7,24,40,.1)] sm:min-h-44"
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${t.social.labels[index]} ${t.social.openNewTab}`}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.06,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
                 >
                   <div className="flex items-start justify-between">
                     <span
@@ -482,7 +543,7 @@ export default function Home() {
                       {t.social.handles[index]}
                     </p>
                   </div>
-                </a>
+                </motion.a>
               );
             })}
           </div>
@@ -494,13 +555,13 @@ export default function Home() {
         aria-labelledby="email-heading"
       >
         <div className="mx-auto grid max-w-[1312px] gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-24">
-          <div className="text-[#071828]">
+          <Reveal className="text-[#071828]">
             <p className="mb-5 text-sm font-black tracking-[0.12em] text-[#d83d1d]">
               {t.email.eyebrow}
             </p>
             <h2
               id="email-heading"
-              className={`text-[clamp(2.7rem,5.5vw,6rem)] font-black leading-[.99] ${headingTracking}`}
+              className={`text-[clamp(2.35rem,5.5vw,6rem)] font-black leading-[.99] ${headingTracking}`}
             >
               {t.email.title[0]}
               <br />
@@ -519,9 +580,13 @@ export default function Home() {
                 </span>
               ))}
             </div>
-          </div>
+          </Reveal>
 
-          <div className="rounded-[2rem] bg-[#071828] p-7 text-white shadow-[0_24px_70px_rgba(7,24,40,.24)] md:p-10">
+          <Reveal
+            direction="right"
+            delay={0.08}
+            className="rounded-[2rem] bg-[#071828] p-7 text-white shadow-[0_24px_70px_rgba(7,24,40,.24)] md:p-10"
+          >
             <div className="flex size-14 items-center justify-center rounded-2xl bg-[#ffc14f] text-2xl text-[#071828]">
               <HiOutlineEnvelope aria-hidden="true" />
             </div>
@@ -549,7 +614,7 @@ export default function Home() {
               {t.email.cta} <span>↗</span>
             </a>
             <p className="mt-4 text-xs font-semibold leading-5 text-white/45">{t.email.note}</p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -558,13 +623,13 @@ export default function Home() {
         className="bg-white px-5 py-20 md:px-10 md:py-28 lg:px-16 lg:py-32"
       >
         <div className="mx-auto max-w-[1312px]">
-          <div className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-end">
+          <Reveal className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-end">
             <div>
               <p className="mb-6 text-sm font-black tracking-[0.12em] text-[#d83d1d]">
                 {t.location.eyebrow}
               </p>
               <h2
-                className={`text-[clamp(2.7rem,5.7vw,6.2rem)] font-black leading-[.99] text-[#071828] ${headingTracking}`}
+                className={`text-[clamp(2.35rem,5.7vw,6.2rem)] font-black leading-[.99] text-[#071828] ${headingTracking}`}
               >
                 {t.location.title[0]}
                 <br />
@@ -584,10 +649,13 @@ export default function Home() {
                 </a>
               </address>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="grid overflow-hidden rounded-[2rem] bg-white shadow-[0_24px_80px_rgba(7,24,40,.1)] lg:grid-cols-[1.5fr_.5fr]">
-            <div className="min-h-[430px] bg-[#d9e2e2] lg:min-h-[560px]">
+          <Reveal
+            delay={0.08}
+            className="grid overflow-hidden rounded-[2rem] bg-white shadow-[0_24px_80px_rgba(7,24,40,.1)] lg:grid-cols-[1.5fr_.5fr]"
+          >
+            <div className="min-h-[340px] bg-[#d9e2e2] sm:min-h-[430px] lg:min-h-[560px]">
               <iframe
                 title={t.location.mapTitle}
                 src="https://maps.google.com/maps?q=%EC%B6%A9%EC%B2%AD%EB%82%A8%EB%8F%84%20%EB%85%BC%EC%82%B0%EC%8B%9C%20%EA%B0%95%EB%B3%80%EB%A1%9C308%EB%B2%88%EA%B8%B8%2048&t=&z=16&ie=UTF8&iwloc=&output=embed"
@@ -595,7 +663,7 @@ export default function Home() {
                 height="100%"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="block min-h-[430px] w-full border-0 lg:min-h-[560px]"
+                className="block min-h-[340px] w-full border-0 sm:min-h-[430px] lg:min-h-[560px]"
               />
             </div>
             <div className="flex flex-col justify-between bg-[#071828] p-8 text-white md:p-10">
@@ -621,11 +689,11 @@ export default function Home() {
                 </a>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <footer className="bg-[#071828] px-5 py-10 text-white md:px-10 lg:px-16">
+      <footer className="bg-[#071828] px-5 pb-28 pt-10 text-white md:px-10 md:py-10 lg:px-16">
         <div className="mx-auto flex max-w-[1312px] flex-col gap-8 border-t border-white/15 pt-9 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-lg font-black tracking-[-0.03em]">{t.brand}</p>
@@ -675,23 +743,14 @@ export default function Home() {
         </div>
       </footer>
 
-      <a
-        className="fixed bottom-4 left-4 z-40 flex items-center gap-2 rounded-full bg-[#ff4e27] px-5 py-3.5 text-sm font-black text-white shadow-2xl shadow-black/30 transition hover:-translate-y-1 md:hidden"
-        href="tel:041-736-4100"
-        aria-label={`${t.floatingCall} 041-736-4100`}
-      >
-        <HiOutlinePhone className="text-lg" aria-hidden="true" />
-        {t.floatingCall}
-      </a>
-
       <div
         ref={languagePickerRef}
-        className="fixed bottom-4 right-4 z-50 md:bottom-6 md:right-6"
+        className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-3 md:bottom-6 md:right-6"
       >
         {languageOpen && (
           <div
             id="language-menu"
-            className="absolute bottom-[calc(100%+12px)] right-0 max-h-[70vh] w-64 overflow-y-auto rounded-[1.4rem] border border-[#071828]/10 bg-white p-2 shadow-[0_22px_70px_rgba(7,24,40,.25)]"
+            className="absolute bottom-[calc(100%+12px)] right-0 max-h-[70vh] w-[min(16rem,calc(100vw-2rem))] overflow-y-auto rounded-[1.4rem] border border-[#071828]/10 bg-white p-2 shadow-[0_22px_70px_rgba(7,24,40,.25)]"
             aria-label={t.language.menuLabel}
           >
             <p className="px-3 pb-2 pt-2 text-xs font-black tracking-[.08em] text-[#71808a]">
@@ -716,6 +775,14 @@ export default function Home() {
             ))}
           </div>
         )}
+        <a
+          className="flex size-[52px] items-center justify-center rounded-full bg-[#03c75a] text-2xl text-white shadow-[0_15px_45px_rgba(3,199,90,.32)] transition hover:-translate-y-0.5 hover:bg-[#02b652] active:scale-95"
+          href="tel:041-736-4100"
+          aria-label={`${t.floatingCall} 041-736-4100`}
+          title="041-736-4100"
+        >
+          <HiOutlinePhone aria-hidden="true" />
+        </a>
         <button
           type="button"
           className="flex min-h-12 items-center gap-2 rounded-full border border-white/20 bg-[#071828] px-4 py-3 text-sm font-black text-white shadow-[0_15px_45px_rgba(7,24,40,.28)] transition hover:-translate-y-0.5 hover:bg-[#0d3048]"
@@ -737,6 +804,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
-    </main>
+      </main>
+    </MotionConfig>
   );
 }
