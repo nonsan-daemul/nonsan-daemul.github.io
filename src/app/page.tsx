@@ -7,7 +7,6 @@ import {
   HiCheck,
   HiChevronUp,
   HiOutlineEnvelope,
-  HiOutlineLanguage,
   HiOutlineMapPin,
   HiOutlinePhone,
   HiOutlineShoppingBag,
@@ -226,7 +225,7 @@ export default function Home() {
 
       <section
         id="about"
-        className="bg-[#f2eee5] px-5 py-24 md:px-10 md:py-32 lg:px-16 lg:py-40"
+        className="bg-[#f2eee5] px-5 py-20 md:px-10 md:py-28 lg:px-16 lg:py-32"
       >
         <div className="mx-auto max-w-[1312px]">
           <div className="grid gap-14 lg:grid-cols-[1.08fr_.92fr] lg:gap-24">
@@ -276,17 +275,16 @@ export default function Home() {
               className="aspect-[4/3] w-full object-cover md:aspect-[16/8]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#071828]/75 via-transparent to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-7 text-white md:flex-row md:items-end md:justify-between md:p-11">
+            <div className="absolute inset-x-0 bottom-0 p-7 text-white md:p-11">
               <p className="text-2xl font-black tracking-[-0.035em] md:text-4xl">
                 {t.about.caption}
               </p>
-              <p className="text-sm font-bold text-white/75">{t.about.parking}</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white px-5 py-24 md:px-10 md:py-32 lg:px-16">
+      <section className="bg-white px-5 py-20 md:px-10 md:py-28 lg:px-16 lg:py-32">
         <div className="mx-auto max-w-[1312px]">
           <div className="mb-14 flex flex-col justify-between gap-5 md:mb-20 md:flex-row md:items-end">
             <div>
@@ -310,15 +308,13 @@ export default function Home() {
             {t.services.items.map((service, index) => (
               <article
                 key={service.title}
-                className="group border-b border-[#071828]/20 py-9 md:border-r md:px-8 md:py-12 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
+                className="border-b border-[#071828]/20 py-9 md:border-r md:px-8 md:py-12 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
               >
-                <div className="mb-16 flex items-center justify-between md:mb-24">
+                <div className="mb-12 flex items-center gap-3 md:mb-16">
                   <span className="text-sm font-black text-[#ff4e27]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="flex size-10 items-center justify-center rounded-full border border-[#071828]/20 text-xl transition group-hover:-rotate-12 group-hover:bg-[#071828] group-hover:text-white">
-                    ↗
-                  </span>
+                  <span className="h-px w-8 bg-[#ff4e27]/60" />
                 </div>
                 <h3 className="text-2xl font-black tracking-[-0.035em] text-[#071828] md:text-3xl">
                   {service.title}
@@ -344,7 +340,7 @@ export default function Home() {
 
       <section
         id="trips"
-        className="relative isolate overflow-hidden bg-[#071828] px-5 py-24 text-white md:px-10 md:py-32 lg:px-16 lg:py-40"
+        className="relative isolate overflow-hidden bg-[#071828] px-5 py-20 text-white md:px-10 md:py-28 lg:px-16 lg:py-32"
       >
         <div className="absolute -right-40 top-0 size-[620px] rounded-full border-[120px] border-[#0d3048] opacity-55" />
         <div className="absolute -bottom-80 -left-40 size-[680px] rounded-full border border-white/10" />
@@ -435,15 +431,6 @@ export default function Home() {
       </section>
 
       <section
-        className="overflow-hidden bg-[#ffc14f] py-7"
-        aria-label={t.mainServicesLabel}
-      >
-        <p className="whitespace-nowrap text-center text-[clamp(1.5rem,3.5vw,3.5rem)] font-black tracking-[-0.035em] text-[#071828]">
-          {t.marquee}
-        </p>
-      </section>
-
-      <section
         className="bg-white px-5 py-20 md:px-10 md:py-24 lg:px-16"
         aria-labelledby="social-heading"
       >
@@ -503,12 +490,12 @@ export default function Home() {
       </section>
 
       <section
-        className="bg-[#ff4e27] px-5 py-20 md:px-10 md:py-28 lg:px-16"
+        className="bg-[#f2eee5] px-5 py-20 md:px-10 md:py-28 lg:px-16"
         aria-labelledby="email-heading"
       >
         <div className="mx-auto grid max-w-[1312px] gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-24">
-          <div className="text-white">
-            <p className="mb-5 text-sm font-black tracking-[0.12em] text-[#071828]">
+          <div className="text-[#071828]">
+            <p className="mb-5 text-sm font-black tracking-[0.12em] text-[#d83d1d]">
               {t.email.eyebrow}
             </p>
             <h2
@@ -519,14 +506,14 @@ export default function Home() {
               <br />
               {t.email.title[1]}
             </h2>
-            <p className="mt-7 max-w-2xl text-base font-semibold leading-7 text-white/82 md:text-lg md:leading-8">
+            <p className="mt-7 max-w-2xl text-base font-semibold leading-7 text-[#50616e] md:text-lg md:leading-8">
               {t.email.description}
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
               {t.email.topics.map((topic) => (
                 <span
                   key={topic}
-                  className="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-extrabold text-white"
+                  className="rounded-full border border-[#071828]/12 bg-white/65 px-4 py-2 text-sm font-extrabold text-[#354550]"
                 >
                   {topic}
                 </span>
@@ -568,7 +555,7 @@ export default function Home() {
 
       <section
         id="location"
-        className="bg-[#eee9de] px-5 py-24 md:px-10 md:py-32 lg:px-16 lg:py-40"
+        className="bg-white px-5 py-20 md:px-10 md:py-28 lg:px-16 lg:py-32"
       >
         <div className="mx-auto max-w-[1312px]">
           <div className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-end">
@@ -720,7 +707,10 @@ export default function Home() {
                 onClick={() => changeLanguage(option.code)}
                 aria-pressed={locale === option.code}
               >
-                <span>{option.label}</span>
+                <span className="flex items-center gap-3">
+                  <span className="text-lg" aria-hidden="true">{option.flag}</span>
+                  <span>{option.label}</span>
+                </span>
                 {locale === option.code && <HiCheck className="text-lg" aria-hidden="true" />}
               </button>
             ))}
@@ -734,7 +724,7 @@ export default function Home() {
           aria-controls="language-menu"
           aria-label={t.language.button}
         >
-          <HiOutlineLanguage className="text-xl text-[#ffc14f]" aria-hidden="true" />
+          <span className="text-lg" aria-hidden="true">{currentLanguage.flag}</span>
           <span>{currentLanguage.shortLabel}</span>
           <HiChevronUp
             className={`text-base transition ${languageOpen ? "rotate-180" : ""}`}
