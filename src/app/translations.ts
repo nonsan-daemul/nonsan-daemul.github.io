@@ -109,12 +109,12 @@ export const translations: Record<Locale, Translation> = {
     homeLabel: "대물낚시 홈",
     navLabel: "주요 메뉴",
     nav: { about: "매장 소개", trips: "바다낚시", location: "오시는 길" },
-    call: "전화하기",
+    call: "전화 문의",
     hero: {
       eyebrow: "SINCE 2004 · NONSAN",
-      title: ["낚시 갈 준비,", "여기서 끝내세요."],
+      title: ["낚시 채비는", "논산 대물낚시에서."],
       description:
-        "대물낚시에는 낚시에 필요한 물건이 많이 있어요. 민물낚시 물건도, 바다낚시 물건도 있어요. 잘 모르겠으면 편하게 물어보세요.",
+        "안녕하세요? 논산 최대 규모의 민물/바다/루어 낚시 전문, 바다낚시 수시 출조 전문점. 대물낚시입니다.",
       locationCta: "매장 위치 보기",
       blogCta: "바다낚시 사진 보기",
       alt: "논산 대물낚시 매장 전경과 출조용 보트",

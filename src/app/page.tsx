@@ -201,14 +201,6 @@ export default function Home() {
               {t.nav.location}
             </a>
           </nav>
-          <a
-            className="flex shrink-0 items-center justify-center rounded-full border border-white/30 bg-white/10 px-3.5 py-2.5 text-sm font-extrabold text-white backdrop-blur-md transition hover:bg-white hover:text-slate-950 sm:px-4"
-            href="tel:041-736-4100"
-            aria-label={`${t.call} 041-736-4100`}
-          >
-            <HiOutlinePhone className="text-lg sm:hidden" aria-hidden="true" />
-            <span className="hidden sm:inline">041-736-4100</span>
-          </a>
         </div>
       </header>
 
@@ -257,20 +249,20 @@ export default function Home() {
             </p>
             <div className="flex w-full shrink-0 flex-col gap-3 sm:w-auto sm:flex-row">
               <a
-                className="w-full rounded-full bg-[#ff4e27] px-6 py-3.5 text-center text-sm font-black text-white shadow-xl shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[#f04420] sm:w-auto"
+                className="flex w-full items-center justify-center gap-2 rounded-full bg-[#03c75a] px-6 py-3.5 text-center text-sm font-black text-white shadow-xl shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[#02b652] sm:w-auto"
+                href="tel:041-736-4100"
+                aria-label={`${t.call} 041-736-4100`}
+              >
+                <HiOutlinePhone className="text-lg" aria-hidden="true" />
+                {t.call}
+              </a>
+              <a
+                className="w-full rounded-full bg-white px-6 py-3.5 text-center text-sm font-black text-slate-950 transition hover:-translate-y-0.5 hover:bg-[#fff5df] sm:w-auto"
                 href={mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {t.hero.locationCta} ↗
-              </a>
-              <a
-                className="w-full rounded-full bg-white px-6 py-3.5 text-center text-sm font-black text-slate-950 transition hover:-translate-y-0.5 hover:bg-[#fff5df] sm:w-auto"
-                href={blogUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t.hero.blogCta}
               </a>
             </div>
           </div>
