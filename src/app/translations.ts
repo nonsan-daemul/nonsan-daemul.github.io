@@ -54,6 +54,16 @@ export type Translation = {
     handles: [string, string, string, string, string];
     openNewTab: string;
   };
+  email: {
+    eyebrow: string;
+    title: [string, string];
+    description: string;
+    topics: [string, string, string];
+    recipientLabel: string;
+    cta: string;
+    note: string;
+    subject: string;
+  };
   location: {
     eyebrow: string;
     title: [string, string];
@@ -156,6 +166,16 @@ export const translations: Record<Locale, Translation> = {
       handles: ["사진과 소식", "출조 · 매장 소식", "낚시용품 온라인 구매", "조사님들과 함께", "카카오톡으로 바로 문의"],
       openNewTab: "새 탭에서 열기",
     },
+    email: {
+      eyebrow: "이메일 문의",
+      title: ["궁금한 내용은", "이메일로도 편하게 보내주세요."],
+      description: "용품 재고나 낚싯대 수리, 출조 일정처럼 미리 확인하고 싶은 내용을 보내주시면 확인 후 답변드리겠습니다.",
+      topics: ["용품 재고", "낚싯대 수리", "출조 문의"],
+      recipientLabel: "문의 메일 수신 주소",
+      cta: "두 주소로 문의 메일 보내기",
+      note: "버튼을 누르면 기본 메일 앱이 열리고 두 주소가 수신인으로 자동 입력됩니다.",
+      subject: "[논산 대물낚시] 이메일 문의",
+    },
     location: {
       eyebrow: "매장 방문",
       title: ["장비가 필요할 땐,", "부담 없이 들러주세요."],
@@ -245,6 +265,16 @@ export const translations: Record<Locale, Translation> = {
       handles: ["Photos and updates", "Trips and store news", "Shop fishing gear online", "Join our community", "Message us directly"],
       openNewTab: "Open in a new tab",
     },
+    email: {
+      eyebrow: "EMAIL ENQUIRIES",
+      title: ["Have a question?", "Send us an email anytime."],
+      description: "Ask about product availability, fishing rod repairs, or upcoming sea trips. We will check your message and get back to you.",
+      topics: ["Product stock", "Rod repairs", "Fishing trips"],
+      recipientLabel: "Email recipients",
+      cta: "Email both addresses",
+      note: "Your email app will open with both recipient addresses filled in.",
+      subject: "[Nonsan Daemul Fishing] Enquiry",
+    },
     location: {
       eyebrow: "VISIT THE STORE",
       title: ["Need fishing gear?", "Drop by anytime."],
@@ -318,6 +348,16 @@ export const translations: Record<Locale, Translation> = {
       labels: ["Instagram", "Naver博客", "Naver智能商店", "Naver Band", "KakaoTalk"],
       handles: ["照片与动态", "出钓与店铺消息", "在线购买渔具", "加入钓友社区", "直接在线咨询"],
       openNewTab: "在新标签页中打开",
+    },
+    email: {
+      eyebrow: "邮件咨询",
+      title: ["有想了解的内容，", "也可以随时发邮件给我们。"],
+      description: "无论是商品库存、钓竿维修还是出钓安排，都可以提前来信咨询。我们确认后会尽快回复。",
+      topics: ["商品库存", "钓竿维修", "出钓咨询"],
+      recipientLabel: "咨询邮件收件地址",
+      cta: "同时向两个地址发送邮件",
+      note: "点击按钮后将打开默认邮件应用，并自动填入两个收件地址。",
+      subject: "[论山大物渔具店] 邮件咨询",
     },
     location: {
       eyebrow: "到店访问",
@@ -393,6 +433,16 @@ export const translations: Record<Locale, Translation> = {
       handles: ["写真とお知らせ", "釣行・店舗情報", "釣り用品をオンライン購入", "釣り仲間のコミュニティ", "気軽にメッセージ"],
       openNewTab: "新しいタブで開く",
     },
+    email: {
+      eyebrow: "メールでのお問い合わせ",
+      title: ["気になることは、", "メールでもお気軽にどうぞ。"],
+      description: "商品の在庫、釣り竿の修理、釣行予定など、事前に確認したいことをお送りください。確認後にご返信します。",
+      topics: ["商品の在庫", "釣り竿の修理", "釣行のお問い合わせ"],
+      recipientLabel: "お問い合わせ先メールアドレス",
+      cta: "2つのアドレスへメールする",
+      note: "ボタンを押すとメールアプリが開き、2つの宛先が自動で入力されます。",
+      subject: "[論山 大物釣具] メールでのお問い合わせ",
+    },
     location: {
       eyebrow: "アクセス",
       title: ["道具が必要なときは、", "気軽にお立ち寄りください。"],
@@ -466,6 +516,16 @@ export const translations: Record<Locale, Translation> = {
       labels: ["Instagram", "Naver Blog", "Naver Smart Store", "Naver Band", "KakaoTalk"],
       handles: ["Ảnh và tin mới", "Tin chuyến câu và cửa hàng", "Mua đồ câu trực tuyến", "Cộng đồng người câu cá", "Nhắn tin trực tiếp"],
       openNewTab: "Mở trong tab mới",
+    },
+    email: {
+      eyebrow: "LIÊN HỆ QUA EMAIL",
+      title: ["Có điều muốn hỏi?", "Cứ gửi email cho chúng tôi."],
+      description: "Bạn có thể hỏi trước về hàng còn trong kho, sửa cần câu hoặc lịch đi câu biển. Chúng tôi sẽ kiểm tra và phản hồi.",
+      topics: ["Hàng còn trong kho", "Sửa cần câu", "Chuyến câu biển"],
+      recipientLabel: "Địa chỉ nhận email",
+      cta: "Gửi email đến cả hai địa chỉ",
+      note: "Ứng dụng email mặc định sẽ mở với cả hai địa chỉ người nhận được điền sẵn.",
+      subject: "[Daemul Fishing Nonsan] Yêu cầu tư vấn",
     },
     location: {
       eyebrow: "GHÉ CỬA HÀNG",
@@ -541,6 +601,16 @@ export const translations: Record<Locale, Translation> = {
       handles: ["Suratlar va yangiliklar", "Safar va do‘kon xabarlari", "Onlayn jihoz xaridi", "Baliqchilar hamjamiyati", "To‘g‘ridan-to‘g‘ri yozing"],
       openNewTab: "Yangi oynada ochish",
     },
+    email: {
+      eyebrow: "EMAIL ORQALI BOG‘LANISH",
+      title: ["Savolingiz bormi?", "Bizga email yuboring."],
+      description: "Mahsulot mavjudligi, qarmoq tayoqchasini ta’mirlash yoki dengiz safari haqida oldindan so‘rashingiz mumkin. Xabaringizni ko‘rib, javob beramiz.",
+      topics: ["Mahsulot mavjudligi", "Tayoqcha ta’miri", "Dengiz safari"],
+      recipientLabel: "Email qabul qiluvchilar",
+      cta: "Ikkala manzilga email yuborish",
+      note: "Email ilovangiz ochiladi va ikkala qabul qiluvchi manzili avtomatik kiritiladi.",
+      subject: "[Nonsan Daemul Fishing] Murojaat",
+    },
     location: {
       eyebrow: "DO‘KONGA KELING",
       title: ["Jihoz kerak bo‘lsa,", "bemalol kirib o‘ting."],
@@ -614,6 +684,16 @@ export const translations: Record<Locale, Translation> = {
       labels: ["Instagram", "Naver Blog", "Naver Smart Store", "Naver Band", "KakaoTalk"],
       handles: ["Фото и новости", "Выезды и новости магазина", "Снасти онлайн", "Сообщество рыболовов", "Написать напрямую"],
       openNewTab: "Открыть в новой вкладке",
+    },
+    email: {
+      eyebrow: "СВЯЗАТЬСЯ ПО EMAIL",
+      title: ["Остались вопросы?", "Напишите нам по электронной почте."],
+      description: "Можно заранее уточнить наличие товара, ремонт удилища или расписание морских выездов. Мы прочитаем сообщение и ответим.",
+      topics: ["Наличие товара", "Ремонт удилищ", "Морские выезды"],
+      recipientLabel: "Адреса получателей",
+      cta: "Написать на оба адреса",
+      note: "Откроется почтовое приложение, а оба адреса получателей будут заполнены автоматически.",
+      subject: "[Nonsan Daemul Fishing] Вопрос",
     },
     location: {
       eyebrow: "КАК НАС НАЙТИ",
@@ -689,6 +769,16 @@ export const translations: Record<Locale, Translation> = {
       handles: ["រូបថត និងព័ត៌មាន", "ដំណើរ និងព័ត៌មានហាង", "ទិញសម្ភារៈអនឡាញ", "សហគមន៍អ្នកនេសាទ", "ផ្ញើសារផ្ទាល់"],
       openNewTab: "បើកក្នុងផ្ទាំងថ្មី",
     },
+    email: {
+      eyebrow: "សាកសួរតាមអ៊ីមែល",
+      title: ["មានសំណួរមែនទេ?", "សូមផ្ញើអ៊ីមែលមកយើង។"],
+      description: "អ្នកអាចសួរអំពីស្តុកសម្ភារៈ ការជួសជុលដងសន្ទូច ឬកាលវិភាគដំណើរនេសាទសមុទ្រ។ យើងនឹងពិនិត្យ ហើយឆ្លើយតប។",
+      topics: ["ស្តុកសម្ភារៈ", "ជួសជុលដង", "ដំណើរសមុទ្រ"],
+      recipientLabel: "អាសយដ្ឋានទទួលអ៊ីមែល",
+      cta: "ផ្ញើទៅអាសយដ្ឋានទាំងពីរ",
+      note: "កម្មវិធីអ៊ីមែលនឹងបើក ហើយបំពេញអាសយដ្ឋានអ្នកទទួលទាំងពីរដោយស្វ័យប្រវត្តិ។",
+      subject: "[Nonsan Daemul Fishing] សំណួរ",
+    },
     location: {
       eyebrow: "មកកាន់ហាង",
       title: ["ត្រូវការសម្ភារៈ?", "សូមមកហាងដោយសេរី។"],
@@ -762,6 +852,16 @@ export const translations: Record<Locale, Translation> = {
       labels: ["Instagram", "Naver Blog", "Naver Smart Store", "Naver Band", "KakaoTalk"],
       handles: ["ဓာတ်ပုံနှင့်သတင်း", "ခရီးနှင့်ဆိုင်သတင်း", "အွန်လိုင်းပစ္စည်းဝယ်ရန်", "ငါးမျှားသူများအဖွဲ့", "တိုက်ရိုက်စာပို့ရန်"],
       openNewTab: "တက်ဘ်အသစ်တွင်ဖွင့်ရန်",
+    },
+    email: {
+      eyebrow: "အီးမေးလ်ဖြင့်မေးမြန်းရန်",
+      title: ["မေးစရာရှိပါသလား?", "အီးမေးလ်ပို့လို့လည်း ရပါတယ်။"],
+      description: "ပစ္စည်းလက်ကျန်၊ ငါးမျှားတံပြုပြင်ခြင်း သို့မဟုတ် ပင်လယ်ခရီးအစီအစဉ်ကို ကြိုတင်မေးမြန်းနိုင်ပါတယ်။ စာကိုစစ်ဆေးပြီး ပြန်လည်ဖြေကြားပေးပါမယ်။",
+      topics: ["ပစ္စည်းလက်ကျန်", "တံပြုပြင်ခြင်း", "ပင်လယ်ခရီး"],
+      recipientLabel: "အီးမေးလ်လက်ခံမည့်လိပ်စာများ",
+      cta: "လိပ်စာနှစ်ခုလုံးသို့ ပို့ရန်",
+      note: "မူလအီးမေးလ်အက်ပ်ပွင့်လာပြီး လက်ခံသူလိပ်စာနှစ်ခုလုံး အလိုအလျောက်ဖြည့်ပေးပါမယ်။",
+      subject: "[Nonsan Daemul Fishing] မေးမြန်းချက်",
     },
     location: {
       eyebrow: "ဆိုင်သို့လာရန်",

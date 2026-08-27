@@ -6,6 +6,7 @@ import { FaInstagram } from "react-icons/fa";
 import {
   HiCheck,
   HiChevronUp,
+  HiOutlineEnvelope,
   HiOutlineLanguage,
   HiOutlinePhone,
   HiOutlineShoppingBag,
@@ -87,6 +88,9 @@ export default function Home() {
   const t = translations[locale];
   const currentLanguage = localeOptions.find((option) => option.code === locale)!;
   const headingTracking = locale === "ko" ? "tracking-[-0.075em]" : "tracking-[-0.04em]";
+  const emailHref = `mailto:k0729047@hanmail.net,daemul4100@naver.com?subject=${encodeURIComponent(
+    t.email.subject,
+  )}`;
 
   useEffect(() => {
     const savedLocale = window.localStorage.getItem("daemul-language");
@@ -493,6 +497,70 @@ export default function Home() {
                 </a>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="bg-[#ff4e27] px-5 py-20 md:px-10 md:py-28 lg:px-16"
+        aria-labelledby="email-heading"
+      >
+        <div className="mx-auto grid max-w-[1312px] gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-24">
+          <div className="text-white">
+            <p className="mb-5 text-sm font-black tracking-[0.12em] text-[#071828]">
+              {t.email.eyebrow}
+            </p>
+            <h2
+              id="email-heading"
+              className={`text-[clamp(2.7rem,5.5vw,6rem)] font-black leading-[.99] ${headingTracking}`}
+            >
+              {t.email.title[0]}
+              <br />
+              {t.email.title[1]}
+            </h2>
+            <p className="mt-7 max-w-2xl text-base font-semibold leading-7 text-white/82 md:text-lg md:leading-8">
+              {t.email.description}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-2">
+              {t.email.topics.map((topic) => (
+                <span
+                  key={topic}
+                  className="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-extrabold text-white"
+                >
+                  {topic}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-[2rem] bg-[#071828] p-7 text-white shadow-[0_24px_70px_rgba(7,24,40,.24)] md:p-10">
+            <div className="flex size-14 items-center justify-center rounded-2xl bg-[#ffc14f] text-2xl text-[#071828]">
+              <HiOutlineEnvelope aria-hidden="true" />
+            </div>
+            <p className="mt-8 text-xs font-black tracking-[0.1em] text-white/45">
+              {t.email.recipientLabel}
+            </p>
+            <div className="mt-4 space-y-2">
+              <a
+                className="block break-all text-lg font-black text-white transition hover:text-[#ffc14f] md:text-xl"
+                href="mailto:k0729047@hanmail.net"
+              >
+                k0729047@hanmail.net
+              </a>
+              <a
+                className="block break-all text-lg font-black text-white transition hover:text-[#ffc14f] md:text-xl"
+                href="mailto:daemul4100@naver.com"
+              >
+                daemul4100@naver.com
+              </a>
+            </div>
+            <a
+              className="mt-8 flex items-center justify-between gap-4 rounded-full bg-[#ffc14f] px-5 py-3.5 text-sm font-black text-[#071828] transition hover:-translate-y-0.5 hover:bg-white"
+              href={emailHref}
+            >
+              {t.email.cta} <span>↗</span>
+            </a>
+            <p className="mt-4 text-xs font-semibold leading-5 text-white/45">{t.email.note}</p>
           </div>
         </div>
       </section>
