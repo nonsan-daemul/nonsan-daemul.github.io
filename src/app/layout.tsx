@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const socialDescription =
+  "논산시 최대 낚시용품 전문점. 바낙스 전문점. 민물·루어·바다·갈치 낚시 장비 판매.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://nonsan-daemul.github.io"),
   title: {
@@ -32,13 +35,13 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "논산 대물낚시",
     title: "논산 대물낚시 | 논산시 최대 규모 낚시점",
-    description: "2004년부터 이어온 현장 경험. 낚시용품, 낚싯대 수리, 10인승 보트 바다 출조까지.",
+    description: socialDescription,
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "논산 대물낚시 - 논산시 최대 규모 낚시점" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "논산 대물낚시 | 논산시 최대 규모 낚시점",
-    description: "2004년부터 이어온 현장 경험. 낚시용품, 낚싯대 수리, 10인승 보트 바다 출조까지.",
+    description: socialDescription,
     images: ["/og.png"],
   },
   robots: {
