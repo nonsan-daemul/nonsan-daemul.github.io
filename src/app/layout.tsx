@@ -54,6 +54,9 @@ export const metadata: Metadata = {
     description: socialDescription,
     images: ["/og.png"],
   },
+  verification: {
+    google: "uUQFmOu3mAUiKqHEMW0aYJ6CW10WoWhVq50izw8zXNA",
+  },
   robots: {
     index: true,
     follow: true,
