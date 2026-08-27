@@ -123,7 +123,7 @@ const jsonLd = {
           },
           {
             "@type": "Offer",
-            itemOffered: { "@type": "Service", name: "10인승 보트 선상 출조 상담" },
+            itemOffered: { "@type": "Service", name: "10인승 출조 보트 선상낚시 상담" },
           },
           {
             "@type": "Offer",
