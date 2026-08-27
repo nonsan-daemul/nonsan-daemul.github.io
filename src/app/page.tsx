@@ -18,6 +18,7 @@ import { SiNaver } from "react-icons/si";
 import { localeOptions, translations, type Locale } from "./translations";
 
 const mapUrl = "https://naver.me/xcgRV1Uf";
+const floatingMapUrl = "https://naver.me/5K64EYGn";
 const blogUrl = "https://blog.naver.com/daemul4100";
 const emailRecipients = ["k0729047@hanmail.net", "daemul4100@naver.com"];
 
@@ -818,14 +819,26 @@ export default function Home() {
             ))}
           </div>
         )}
-        <a
-          className="flex size-[52px] items-center justify-center rounded-full bg-[#03c75a] text-2xl text-white shadow-[0_15px_45px_rgba(3,199,90,.32)] transition hover:-translate-y-0.5 hover:bg-[#02b652] active:scale-95"
-          href="tel:041-736-4100"
-          aria-label={`${t.floatingCall} 041-736-4100`}
-          title="041-736-4100"
-        >
-          <HiOutlinePhone aria-hidden="true" />
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            className="flex size-[52px] items-center justify-center rounded-full bg-[#ff4e27] text-2xl text-white shadow-[0_15px_45px_rgba(255,78,39,.3)] transition hover:-translate-y-0.5 hover:bg-[#f04420] active:scale-95"
+            href={floatingMapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t.footer.map}
+            title={t.footer.map}
+          >
+            <HiOutlineMapPin aria-hidden="true" />
+          </a>
+          <a
+            className="flex size-[52px] items-center justify-center rounded-full bg-[#03c75a] text-2xl text-white shadow-[0_15px_45px_rgba(3,199,90,.32)] transition hover:-translate-y-0.5 hover:bg-[#02b652] active:scale-95"
+            href="tel:041-736-4100"
+            aria-label={`${t.floatingCall} 041-736-4100`}
+            title="041-736-4100"
+          >
+            <HiOutlinePhone aria-hidden="true" />
+          </a>
+        </div>
         <button
           type="button"
           className="flex min-h-12 items-center gap-2 rounded-full border border-white/20 bg-[#071828] px-4 py-3 text-sm font-black text-white shadow-[0_15px_45px_rgba(7,24,40,.28)] transition hover:-translate-y-0.5 hover:bg-[#0d3048]"
