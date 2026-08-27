@@ -21,6 +21,9 @@ const mapUrl = "https://naver.me/xcgRV1Uf";
 const floatingMapUrl = "https://naver.me/5K64EYGn";
 const blogUrl = "https://blog.naver.com/daemul4100";
 const emailRecipients = ["k0729047@hanmail.net", "daemul4100@naver.com"];
+const phoneNumber = "041-736-4100";
+const phoneHref = `tel:${phoneNumber}`;
+const siteUrl = "https://nonsan-daemul.github.io/";
 
 const socialLinks = [
   {
@@ -52,32 +55,93 @@ const socialLinks = [
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": ["SportingGoodsStore", "LocalBusiness"],
-  name: "논산 대물낚시",
-  alternateName: ["대물낚시", "논산 낚시점", "논산낚시점"],
-  url: "https://nonsan-daemul.github.io/",
-  image: "https://nonsan-daemul.github.io/images/store-front.webp",
-  description:
-    "2004년부터 운영해 온 논산시 최대 규모 낚시점. 낚시용품 판매, 낚싯대 수리, 계절별 바다낚시 출조를 제공합니다.",
-  slogan: "논산시 최대 규모 낚시점, Since 2004",
-  foundingDate: "2004",
-  telephone: "+82-41-736-4100",
-  priceRange: "₩₩",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "강변로308번길 48",
-    addressLocality: "논산시",
-    addressRegion: "충청남도",
-    addressCountry: "KR",
-  },
-  areaServed: ["논산시", "충청남도"],
-  sameAs: [
-    "https://www.instagram.com/nonsan_daemul",
-    blogUrl,
-    "https://smartstore.naver.com/nonsandaemul",
-    "https://www.band.us/band/68307995/post",
-    "https://open.kakao.com/me/nonsandaemul",
-    mapUrl,
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}#website`,
+      url: siteUrl,
+      name: "논산 대물낚시",
+      alternateName: ["대물낚시", "논산 낚시점", "논산낚시점"],
+      description:
+        "논산의 민물·루어·바다·갈치 낚시용품과 출조 채비, 바다낚시·선상 출조 상담을 제공하는 대물낚시 공식 홈페이지입니다.",
+      inLanguage: "ko-KR",
+      publisher: { "@id": `${siteUrl}#business` },
+    },
+    {
+      "@type": "SportingGoodsStore",
+      "@id": `${siteUrl}#business`,
+      name: "논산 대물낚시",
+      alternateName: ["대물낚시", "논산 낚시점", "논산낚시점", "논산 낚시용품점"],
+      url: siteUrl,
+      mainEntityOfPage: { "@id": `${siteUrl}#website` },
+      logo: `${siteUrl}icon.png`,
+      image: [
+        `${siteUrl}images/store-front.webp`,
+        `${siteUrl}images/store-wide.webp`,
+        `${siteUrl}og.png`,
+      ],
+      description:
+        "2004년부터 운영해 온 논산시 최대 규모 낚시점. 20년 넘는 경험으로 민물·루어·바다·갈치 낚시용품 판매, 낚싯대 수리, 출조 채비와 바다낚시·선상 출조 상담을 제공합니다.",
+      slogan: "논산시 최대 규모 낚시점, Since 2004",
+      foundingDate: "2004",
+      telephone: "+82-41-736-4100",
+      priceRange: "₩₩",
+      brand: { "@type": "Brand", name: "바낙스" },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "강변로308번길 48",
+        addressLocality: "논산시",
+        addressRegion: "충청남도",
+        addressCountry: "KR",
+      },
+      areaServed: ["논산시", "충청남도"],
+      knowsAbout: [
+        "민물낚시",
+        "루어낚시",
+        "바다낚시",
+        "갈치낚시",
+        "선상낚시",
+        "출조 채비",
+        "낚싯대 수리",
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+82-41-736-4100",
+        contactType: "customer service",
+        availableLanguage: "Korean",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "논산 대물낚시 상품 및 상담",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: "민물·루어·바다·갈치 낚시용품 상담 및 판매" },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: "출조 채비 및 바다낚시 상담" },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: "10인승 보트 선상 출조 상담" },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: "낚싯대 점검 및 수리" },
+          },
+        ],
+      },
+      sameAs: [
+        "https://www.instagram.com/nonsan_daemul",
+        blogUrl,
+        "https://smartstore.naver.com/nonsandaemul",
+        "https://www.band.us/band/68307995/post",
+        "https://open.kakao.com/me/nonsandaemul",
+        mapUrl,
+        floatingMapUrl,
+      ],
+    },
   ],
 };
 
@@ -134,7 +198,7 @@ export default function Home() {
     document.documentElement.lang = locale;
     document.title =
       locale === "ko"
-        ? "논산 대물낚시 | 논산시 최대 규모 낚시점"
+        ? "논산 대물낚시 | 낚시용품·바다 출조 상담"
         : `${translations[locale].brand} | Since 2004`;
     window.localStorage.setItem("daemul-language", locale);
   }, [locale]);
@@ -251,8 +315,8 @@ export default function Home() {
             <div className="flex w-full shrink-0 flex-col gap-3 sm:w-auto sm:flex-row">
               <a
                 className="flex w-full items-center justify-center gap-2 rounded-full bg-[#03c75a] px-6 py-3.5 text-center text-sm font-black text-white shadow-xl shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[#02b652] sm:w-auto"
-                href="tel:041-736-4100"
-                aria-label={`${t.call} 041-736-4100`}
+                href={phoneHref}
+                aria-label={`${t.call} ${phoneNumber}`}
               >
                 <HiOutlinePhone className="text-lg" aria-hidden="true" />
                 {t.call}
@@ -329,6 +393,65 @@ export default function Home() {
               <p className="text-2xl font-black tracking-[-0.035em] md:text-4xl">
                 {t.about.caption}
               </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section
+        id="consulting"
+        className="bg-[#ff4e27] px-5 py-20 text-white md:px-10 md:py-28 lg:px-16 lg:py-32"
+        aria-labelledby="consulting-heading"
+      >
+        <div className="mx-auto max-w-[1312px]">
+          <Reveal className="grid gap-12 lg:grid-cols-[.82fr_1.18fr] lg:gap-20">
+            <div>
+              <p className="mb-6 text-sm font-black tracking-[0.12em] text-[#071828]">
+                {t.expertise.eyebrow}
+              </p>
+              <h2
+                id="consulting-heading"
+                className={`text-[clamp(2.45rem,5.3vw,5.8rem)] font-black leading-[.98] [text-wrap:balance] ${headingTracking}`}
+              >
+                {t.expertise.title[0]}
+                <br />
+                {t.expertise.title[1]}
+              </h2>
+              <p className="mt-8 max-w-2xl text-base font-semibold leading-8 text-white/85 md:text-lg">
+                {t.expertise.description}
+              </p>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {t.expertise.items.map((item, index) => (
+                <motion.article
+                  key={item.title}
+                  className="rounded-[1.6rem] bg-[#071828] p-6 shadow-[0_18px_45px_rgba(7,24,40,.15)] md:p-7"
+                  initial={{ opacity: 0, y: 26 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.07,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="text-xs font-black tracking-[.12em] text-[#ffc14f]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="flex size-9 items-center justify-center rounded-full bg-[#ffc14f] text-lg text-[#071828]">
+                      <HiCheck aria-hidden="true" />
+                    </span>
+                  </div>
+                  <h3 className="mt-8 text-xl font-black tracking-[-0.035em] md:text-2xl">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-sm font-semibold leading-7 text-white/65">
+                    {item.description}
+                  </p>
+                </motion.article>
+              ))}
             </div>
           </Reveal>
         </div>
@@ -470,7 +593,8 @@ export default function Home() {
               <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <a
                   className="rounded-full bg-[#ff4e27] px-6 py-3.5 text-center text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-[#f04420]"
-                  href="tel:041-736-4100"
+                  href={phoneHref}
+                  aria-label={`${t.trips.inquiry} ${phoneNumber}`}
                 >
                   {t.trips.inquiry}
                 </a>
@@ -687,9 +811,9 @@ export default function Home() {
                 </p>
                 <a
                   className="mt-3 inline-block text-3xl font-black tracking-[-0.05em] text-[#ff4e27] md:text-4xl"
-                  href="tel:041-736-4100"
+                  href={phoneHref}
                 >
-                  041-736-4100
+                  {phoneNumber}
                 </a>
               </address>
             </div>
@@ -774,7 +898,7 @@ export default function Home() {
             </a>
             <a
               className="flex size-10 items-center justify-center rounded-full border border-white/15 text-lg text-white/65 transition hover:-translate-y-0.5 hover:border-white/35 hover:bg-white hover:text-[#ff4e27]"
-              href="tel:041-736-4100"
+              href={phoneHref}
               aria-label={t.footer.call}
               title={t.footer.call}
             >
@@ -832,9 +956,9 @@ export default function Home() {
           </a>
           <a
             className="flex size-[52px] items-center justify-center rounded-full bg-[#03c75a] text-2xl text-white shadow-[0_15px_45px_rgba(3,199,90,.32)] transition hover:-translate-y-0.5 hover:bg-[#02b652] active:scale-95"
-            href="tel:041-736-4100"
-            aria-label={`${t.floatingCall} 041-736-4100`}
-            title="041-736-4100"
+            href={phoneHref}
+            aria-label={`${t.floatingCall} ${phoneNumber}`}
+            title={phoneNumber}
           >
             <HiOutlinePhone aria-hidden="true" />
           </a>

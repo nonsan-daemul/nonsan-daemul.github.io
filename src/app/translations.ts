@@ -22,6 +22,12 @@ export type Translation = {
     caption: string;
     parking: string;
   };
+  expertise: {
+    eyebrow: string;
+    title: [string, string];
+    description: string;
+    items: Array<{ title: string; description: string }>;
+  };
   services: {
     eyebrow: string;
     title: [string, string];
@@ -122,10 +128,34 @@ export const translations: Record<Locale, Translation> = {
       title: ["우리도 낚시를 좋아해요.", "그래서 잘 알아요."],
       description:
         "우리도 직접 바다에 가요. 그래서 어떤 날, 어떤 도구가 필요한지 잘 알아요. 처음 오신 분도 어렵지 않게 알려드릴게요.",
-      stats: ["가게를 연 해", "오랫동안 낚시했어요", "10명이 타는 보트", "한 사람씩 친절하게 상담"],
+      stats: ["가게를 연 해", "20년 넘는 낚시 경험", "인승 보트", "한 사람씩 친절하게 상담"],
       storeAlt: "넓은 주차 공간을 갖춘 논산 대물낚시 매장 외관",
       caption: "편하게 보고, 궁금하면 물어보세요.",
       parking: "매장 앞 넓은 주차 공간",
+    },
+    expertise: {
+      eyebrow: "20년 넘는 낚시 경험",
+      title: ["논산에서 낚시를 준비한다면,", "베테랑에게 물어보세요."],
+      description:
+        "논산 대물낚시는 20년 넘는 낚시 경험을 가진 베테랑이 직접 운영합니다. 민물낚시, 루어낚시, 바다낚시와 선상 출조까지 직접 해본 경험으로 필요한 준비를 쉽게 알려드려요.",
+      items: [
+        {
+          title: "출조 채비 상담",
+          description: "잡고 싶은 어종과 계절, 출조 장소에 맞춰 낚싯대·릴·채비와 준비물을 알려드려요.",
+        },
+        {
+          title: "바다낚시 상담",
+          description: "갈치, 우럭, 쭈꾸미, 갑오징어 등 바다낚시에 필요한 장비와 채비를 함께 골라드려요.",
+        },
+        {
+          title: "출조 관련 상담",
+          description: "날씨와 물때, 출조 일정, 10인승 보트 예약까지 궁금한 내용을 편하게 물어보세요.",
+        },
+        {
+          title: "낚시 종합 상담",
+          description: "처음 시작하는 분부터 오래 즐긴 분까지, 낚시에 관한 모든 궁금증을 친절하게 상담해드려요.",
+        },
+      ],
     },
     services: {
       eyebrow: "매장과 서비스",
@@ -153,9 +183,9 @@ export const translations: Record<Locale, Translation> = {
       eyebrow: "함께 가는 바다낚시",
       title: ["날씨 좋은 날,", "함께 바다에 가요."],
       description:
-        "봄, 가을, 겨울에 10명이 타는 보트로 바다에 가요. 처음 온 분도 괜찮아요. 어디서 어떻게 낚는지 쉽게 알려드려요.",
+        "봄, 가을, 겨울에 10인승 보트로 바다에 가요. 처음 온 분도 괜찮아요. 어디서 어떻게 낚는지 쉽게 알려드려요.",
       boatAlt: "대물낚시 매장 앞 10인승 바다낚시 보트",
-      boatLabel: "명이 타는 보트",
+      boatLabel: "인승 보트 · 수시 출조",
       species: ["감성돔", "갈치", "쭈꾸미", "갑오징어", "문어", "우럭"],
       seasonLabel: "언제 가나요?",
       seasonValue: "봄 · 가을 · 겨울",
@@ -230,6 +260,17 @@ export const translations: Record<Locale, Translation> = {
       storeAlt: "Daemul Fishing storefront in Nonsan with spacious parking",
       caption: "Take your time, look around, and ask away.",
       parking: "Spacious parking in front",
+    },
+    expertise: {
+      eyebrow: "20+ YEARS OF FISHING EXPERIENCE",
+      title: ["Planning a fishing trip in Nonsan?", "Ask a seasoned angler."],
+      description: "Daemul Fishing is run by an angler with more than 20 years of hands-on experience in freshwater, lure, sea, and boat fishing.",
+      items: [
+        { title: "Trip setup advice", description: "We match rods, reels, rigs, and supplies to your target fish, season, and fishing spot." },
+        { title: "Sea fishing advice", description: "Get practical help choosing tackle for hairtail, rockfish, octopus, cuttlefish, and more." },
+        { title: "Fishing trip advice", description: "Ask about weather, tides, schedules, and booking our 10-passenger boat." },
+        { title: "All-round fishing advice", description: "Beginners and experienced anglers are welcome to ask us anything about fishing." },
+      ],
     },
     services: {
       eyebrow: "STORE & SERVICE",
@@ -333,6 +374,17 @@ export const translations: Record<Locale, Translation> = {
       caption: "慢慢挑，有问题随时问我们。",
       parking: "店门前宽敞停车位",
     },
+    expertise: {
+      eyebrow: "20多年实钓经验",
+      title: ["在论山准备钓鱼，", "请教经验丰富的钓鱼人。"],
+      description: "大物渔具店由拥有20多年经验的钓鱼老手经营，熟悉淡水钓、路亚、海钓和船钓。",
+      items: [
+        { title: "出钓装备咨询", description: "根据目标鱼、季节和钓点，推荐合适的钓竿、渔轮、钓组和用品。" },
+        { title: "海钓咨询", description: "为带鱼、石斑鱼、章鱼、墨鱼等海钓准备合适的装备。" },
+        { title: "出钓行程咨询", description: "可咨询天气、潮汐、行程和10人座钓鱼船预约。" },
+        { title: "综合钓鱼咨询", description: "无论新手还是老钓友，都可以轻松询问各种钓鱼问题。" },
+      ],
+    },
     services: {
       eyebrow: "商品与服务",
       title: ["选装备、做维修，", "来这里一次解决。"],
@@ -421,6 +473,17 @@ export const translations: Record<Locale, Translation> = {
       storeAlt: "広い駐車場を備えた論山大物釣具の外観",
       caption: "ゆっくり見て、気軽にご相談ください。",
       parking: "店舗前に広い駐車スペース",
+    },
+    expertise: {
+      eyebrow: "20年以上の釣り経験",
+      title: ["論山で釣りの準備をするなら、", "経験豊富な釣り人にご相談ください。"],
+      description: "大物釣具は、淡水・ルアー・海・船釣りを20年以上経験してきたベテランが運営しています。",
+      items: [
+        { title: "釣行仕掛け相談", description: "対象魚、季節、ポイントに合わせてロッド、リール、仕掛け、持ち物をご案内します。" },
+        { title: "海釣り相談", description: "タチウオ、メバル、イイダコ、コウイカなどに必要な道具を一緒に選びます。" },
+        { title: "釣行相談", description: "天候、潮、日程、10人乗りボートの予約について気軽にお尋ねください。" },
+        { title: "釣り全般の相談", description: "初心者からベテランまで、釣りに関する疑問に丁寧にお答えします。" },
+      ],
     },
     services: {
       eyebrow: "商品とサービス",
@@ -511,6 +574,17 @@ export const translations: Record<Locale, Translation> = {
       caption: "Cứ xem thoải mái và hỏi chúng tôi nhé.",
       parking: "Bãi đỗ xe rộng trước cửa hàng",
     },
+    expertise: {
+      eyebrow: "HƠN 20 NĂM KINH NGHIỆM CÂU CÁ",
+      title: ["Chuẩn bị đi câu ở Nonsan?", "Hãy hỏi người có kinh nghiệm."],
+      description: "Daemul Fishing do một người câu cá kỳ cựu với hơn 20 năm kinh nghiệm câu nước ngọt, lure, câu biển và câu thuyền trực tiếp điều hành.",
+      items: [
+        { title: "Tư vấn chuẩn bị chuyến câu", description: "Chúng tôi gợi ý cần, máy, bộ thẻo và đồ dùng theo loại cá, mùa và điểm câu." },
+        { title: "Tư vấn câu biển", description: "Cùng chọn đồ phù hợp để câu cá hố, cá mú đá, bạch tuộc và mực nang." },
+        { title: "Tư vấn chuyến câu", description: "Hỏi về thời tiết, thủy triều, lịch đi và đặt thuyền 10 chỗ." },
+        { title: "Tư vấn mọi vấn đề về câu cá", description: "Người mới hay người đã câu lâu năm đều có thể hỏi chúng tôi bất cứ điều gì." },
+      ],
+    },
     services: {
       eyebrow: "SẢN PHẨM & DỊCH VỤ",
       title: ["Chuẩn bị đồ và sửa cần", "ngay tại một nơi."],
@@ -599,6 +673,17 @@ export const translations: Record<Locale, Translation> = {
       storeAlt: "Keng avtoturargohli Nonsan Daemul Fishing do‘koni",
       caption: "Bemalol ko‘ring va istagan savolingizni bering.",
       parking: "Do‘kon oldida keng avtoturargoh",
+    },
+    expertise: {
+      eyebrow: "20 YILDAN ORTIQ TAJRIBA",
+      title: ["Nonsanda baliq oviga tayyorlanyapsizmi?", "Tajribali baliqchidan so‘rang."],
+      description: "Daemul Fishing do‘konini chuchuk suv, lure, dengiz va qayiqda baliq ovlash bo‘yicha 20 yildan ortiq tajribaga ega baliqchi boshqaradi.",
+      items: [
+        { title: "Safar jihozlari bo‘yicha maslahat", description: "Baliq turi, mavsum va joyga mos tayoqcha, g‘altak, montaj va kerakli buyumlarni tanlaymiz." },
+        { title: "Dengiz ovi bo‘yicha maslahat", description: "Dengiz baliqlari, ahtapot va karakatitsa uchun kerakli jihozlarni tavsiya qilamiz." },
+        { title: "Safar bo‘yicha maslahat", description: "Ob-havo, suv, jadval va 10 kishilik qayiqni band qilish haqida so‘rang." },
+        { title: "Barcha baliq ovlash savollari", description: "Yangi boshlovchi ham, tajribali baliqchi ham istagan savolini berishi mumkin." },
+      ],
     },
     services: {
       eyebrow: "DO‘KON VA XIZMATLAR",
@@ -689,6 +774,17 @@ export const translations: Record<Locale, Translation> = {
       caption: "Смотрите не спеша и смело задавайте вопросы.",
       parking: "Большая парковка перед магазином",
     },
+    expertise: {
+      eyebrow: "БОЛЕЕ 20 ЛЕТ ОПЫТА",
+      title: ["Готовитесь к рыбалке в Нонсане?", "Спросите опытного рыболова."],
+      description: "Daemul Fishing управляет рыболов с более чем 20-летним опытом пресноводной, спиннинговой, морской и лодочной рыбалки.",
+      items: [
+        { title: "Подготовка снастей к выезду", description: "Подберём удилище, катушку, оснастку и принадлежности под рыбу, сезон и место." },
+        { title: "Консультация по морской рыбалке", description: "Поможем выбрать снасти для рыбы-сабли, морского окуня, осьминога и каракатицы." },
+        { title: "Консультация по выездам", description: "Расскажем о погоде, приливах, расписании и бронировании 10-местной лодки." },
+        { title: "Любые вопросы о рыбалке", description: "От новичков до опытных рыболовов — всем подробно и доброжелательно ответим." },
+      ],
+    },
     services: {
       eyebrow: "ТОВАРЫ И УСЛУГИ",
       title: ["Снасти, консультации и ремонт", "в одном месте."],
@@ -778,6 +874,17 @@ export const translations: Record<Locale, Translation> = {
       caption: "សូមមើលដោយស្រួល ហើយសួរយើងបានគ្រប់ពេល។",
       parking: "ចំណតធំទូលាយនៅមុខហាង",
     },
+    expertise: {
+      eyebrow: "បទពិសោធន៍នេសាទជាង 20 ឆ្នាំ",
+      title: ["កំពុងរៀបចំនេសាទនៅ Nonsan?", "សួរអ្នកនេសាទដែលមានបទពិសោធន៍។"],
+      description: "Daemul Fishing ដំណើរការដោយអ្នកនេសាទជើងចាស់ ដែលមានបទពិសោធន៍ជាង 20 ឆ្នាំក្នុងទឹកសាប lure សមុទ្រ និងនេសាទតាមទូក។",
+      items: [
+        { title: "ប្រឹក្សាសម្ភារៈដំណើរ", description: "យើងជួយជ្រើសដង រ៉ឺល ខ្សែ និងសម្ភារៈតាមប្រភេទត្រី រដូវ និងទីតាំង។" },
+        { title: "ប្រឹក្សានេសាទសមុទ្រ", description: "ជួយជ្រើសសម្ភារៈសម្រាប់ត្រីដាវ ត្រីថ្ម មឹកយក្ស និងមឹកក្រឡា។" },
+        { title: "ប្រឹក្សាដំណើរនេសាទ", description: "សួរអំពីអាកាសធាតុ ជំនោរ កាលវិភាគ និងការកក់ទូក 10 កៅអី។" },
+        { title: "ប្រឹក្សានេសាទគ្រប់យ៉ាង", description: "ទាំងអ្នកថ្មី និងអ្នកមានបទពិសោធន៍ អាចសួរយើងបានគ្រប់សំណួរ។" },
+      ],
+    },
     services: {
       eyebrow: "សម្ភារៈ និងសេវាកម្ម",
       title: ["សម្ភារៈ ការណែនាំ និងជួសជុល", "មាននៅកន្លែងតែមួយ។"],
@@ -866,6 +973,17 @@ export const translations: Record<Locale, Translation> = {
       storeAlt: "ကားရပ်ရန်နေရာကျယ်သော Nonsan Daemul Fishing ဆိုင်",
       caption: "အေးအေးဆေးဆေးကြည့်ပြီး လွတ်လွတ်လပ်လပ်မေးပါ။",
       parking: "ဆိုင်ရှေ့ကားရပ်ရန်နေရာကျယ်",
+    },
+    expertise: {
+      eyebrow: "နှစ် 20 ကျော် ငါးမျှားအတွေ့အကြုံ",
+      title: ["Nonsan မှာ ငါးမျှားဖို့ ပြင်ဆင်နေပါသလား?", "အတွေ့အကြုံရှိသူကို မေးပါ။"],
+      description: "Daemul Fishing ကို ရေချို၊ lure၊ ပင်လယ်နှင့် လှေပေါ်ငါးမျှားခြင်းအတွေ့အကြုံ နှစ် 20 ကျော်ရှိသူက ကိုယ်တိုင်ဦးစီးပါတယ်။",
+      items: [
+        { title: "ခရီးသုံးပစ္စည်းအကြံပေး", description: "ငါးအမျိုးအစား၊ ရာသီနဲ့ နေရာအလိုက် တံ၊ reel၊ ကြိုးဆင်ပစ္စည်းနဲ့ လိုအပ်တာတွေကို ရွေးပေးပါတယ်။" },
+        { title: "ပင်လယ်ငါးမျှားအကြံပေး", description: "ပင်လယ်ငါး၊ ရေဘဝဲနဲ့ ကင်းမွန်အတွက် လိုအပ်တဲ့ပစ္စည်းတွေကို အတူရွေးပေးပါတယ်။" },
+        { title: "ငါးမျှားခရီးအကြံပေး", description: "ရာသီဥတု၊ ရေတက်ရေကျ၊ အစီအစဉ်နဲ့ လူ 10 စီးလှေ ကြိုတင်မှာယူမှုကို မေးနိုင်ပါတယ်။" },
+        { title: "ငါးမျှားအကြောင်းအားလုံး", description: "စတင်သူကနေ အတွေ့အကြုံရှိသူအထိ မေးသမျှကို နားလည်လွယ်အောင် ဖြေပေးပါတယ်။" },
+      ],
     },
     services: {
       eyebrow: "ပစ္စည်းနှင့်ဝန်ဆောင်မှု",

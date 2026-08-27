@@ -6,20 +6,30 @@ const socialDescription =
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nonsan-daemul.github.io"),
+  applicationName: "논산 대물낚시",
   title: {
-    default: "논산 대물낚시 | 논산시 최대 규모 낚시점",
+    default: "논산 대물낚시 | 낚시용품·바다 출조 상담",
     template: "%s | 논산 대물낚시",
   },
   description:
-    "2004년부터 논산의 낚시를 준비해 온 대물낚시. 낚시용품 판매, 낚싯대 수리, 10인승 보트 계절별 바다낚시 출조 전문점입니다.",
+    "논산 대물낚시는 민물·루어·바다·갈치 용품을 판매하고, 20년 넘는 경험으로 출조 채비·선상 출조 상담과 낚싯대 수리를 도와드립니다.",
   keywords: [
+    "논산 낚시",
+    "논산낚시",
     "논산 낚시점",
     "논산낚시점",
-    "논산 낚시",
     "논산 대물낚시",
+    "논산 낚시가게",
     "논산 낚시용품",
+    "논산 민물낚시",
+    "논산 루어낚시",
+    "논산 바다낚시",
     "논산 바다낚시 출조",
+    "논산 선상낚시",
+    "논산 출조",
+    "논산 낚시 채비",
     "논산 낚싯대 수리",
+    "논산 바낙스",
     "충남 낚시점",
   ],
   authors: [{ name: "논산 대물낚시", url: "https://blog.naver.com/daemul4100" }],
