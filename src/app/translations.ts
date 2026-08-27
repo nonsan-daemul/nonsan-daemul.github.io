@@ -117,7 +117,7 @@ export const translations: Record<Locale, Translation> = {
       eyebrow: "SINCE 2004 · NONSAN",
       title: ["낚시 채비는", "논산 대물낚시에서."],
       description:
-        "안녕하세요? 논산 최대 규모의 민물/바다/루어 낚시 전문, 바다낚시 수시 출조 전문점. 대물낚시입니다.",
+        "안녕하세요! 논산 최대 규모의 민물/바다/루어 낚시 전문점, 바다낚시 수시 출조 전문점. 대물낚시입니다.",
       locationCta: "매장 위치 보기",
       alt: "논산 대물낚시 매장 전경과 출조용 보트",
     },

@@ -777,7 +777,7 @@ export default function Home() {
         className="bg-white px-5 py-20 md:px-10 md:py-28 lg:px-16 lg:py-32"
       >
         <div className="mx-auto max-w-[1312px]">
-          <Reveal className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-end">
+          <Reveal className="mb-12">
             <div>
               <p className="mb-6 text-sm font-black tracking-[0.12em] text-[#d83d1d]">
                 {t.location.eyebrow}
@@ -789,19 +789,6 @@ export default function Home() {
                 <br />
                 {t.location.title[1]}
               </h2>
-            </div>
-            <div className="lg:max-w-xl lg:justify-self-end">
-              <address className="not-italic">
-                <p className="text-xl font-black leading-8 tracking-[-0.025em] text-[#071828] md:text-2xl">
-                  {t.location.address}
-                </p>
-                <a
-                  className="mt-3 inline-block text-3xl font-black tracking-[-0.05em] text-[#ff4e27] md:text-4xl"
-                  href={phoneHref}
-                >
-                  {phoneNumber}
-                </a>
-              </address>
             </div>
           </Reveal>
 
@@ -831,6 +818,18 @@ export default function Home() {
                 <p className="mt-4 text-sm font-semibold leading-6 text-white/65">
                   {t.location.description}
                 </p>
+                <address className="mt-7 border-t border-white/15 pt-6 not-italic">
+                  <p className="text-sm font-black leading-6 text-white/90">
+                    {t.location.address}
+                  </p>
+                  <a
+                    className="mt-3 inline-flex items-center gap-2 text-xl font-black tracking-[-0.035em] text-[#ffc14f] transition hover:text-white"
+                    href={phoneHref}
+                  >
+                    <HiOutlinePhone className="text-lg" aria-hidden="true" />
+                    {phoneNumber}
+                  </a>
+                </address>
               </div>
               <div className="mt-12 space-y-3">
                 <a
@@ -906,34 +905,6 @@ export default function Home() {
         ref={languagePickerRef}
         className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-3 md:bottom-6 md:right-6"
       >
-        {languageOpen && (
-          <div
-            id="language-menu"
-            className="absolute bottom-[calc(100%+12px)] right-0 max-h-[70vh] w-[min(16rem,calc(100vw-2rem))] overflow-y-auto rounded-[1.4rem] border border-[#071828]/10 bg-white p-2 shadow-[0_22px_70px_rgba(7,24,40,.25)]"
-            aria-label={t.language.menuLabel}
-          >
-            <p className="px-3 pb-2 pt-2 text-xs font-black tracking-[.08em] text-[#71808a]">
-              {t.language.menuLabel}
-            </p>
-            {localeOptions.map((option) => (
-              <button
-                key={option.code}
-                type="button"
-                className={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-sm font-bold transition hover:bg-[#f2eee5] ${
-                  locale === option.code ? "bg-[#fff1e9] text-[#d83d1d]" : "text-[#243746]"
-                }`}
-                onClick={() => changeLanguage(option.code)}
-                aria-pressed={locale === option.code}
-              >
-                <span className="flex items-center gap-3">
-                  <span className="text-lg" aria-hidden="true">{option.flag}</span>
-                  <span>{option.label}</span>
-                </span>
-                {locale === option.code && <HiCheck className="text-lg" aria-hidden="true" />}
-              </button>
-            ))}
-          </div>
-        )}
         <div className="flex flex-col items-center gap-3">
           <a
             className="flex size-[52px] items-center justify-center rounded-full bg-[#ff4e27] text-2xl text-white shadow-[0_15px_45px_rgba(255,78,39,.3)] transition hover:-translate-y-0.5 hover:bg-[#f04420] active:scale-95"
@@ -953,21 +924,51 @@ export default function Home() {
           >
             <HiOutlinePhone aria-hidden="true" />
           </a>
-          <button
-            type="button"
-            className={`flex size-[52px] items-center justify-center rounded-full border text-xl shadow-[0_15px_45px_rgba(7,24,40,.28)] transition hover:-translate-y-0.5 active:scale-95 ${
-              languageOpen
-                ? "border-[#ffc14f] bg-[#0d3048]"
-                : "border-white/20 bg-[#071828] hover:bg-[#0d3048]"
-            }`}
-            onClick={() => setLanguageOpen((open) => !open)}
-            aria-expanded={languageOpen}
-            aria-controls="language-menu"
-            aria-label={`${t.language.button}: ${currentLanguage.label}`}
-            title={currentLanguage.label}
-          >
-            <span aria-hidden="true">{currentLanguage.flag}</span>
-          </button>
+          <div className="relative">
+            {languageOpen && (
+              <div
+                id="language-menu"
+                className="absolute bottom-[calc(100%+12px)] right-0 max-h-[70vh] w-[min(16rem,calc(100vw-2rem))] overflow-y-auto rounded-[1.4rem] border border-[#071828]/10 bg-white p-2 shadow-[0_22px_70px_rgba(7,24,40,.25)]"
+                aria-label={t.language.menuLabel}
+              >
+                <p className="px-3 pb-2 pt-2 text-xs font-black tracking-[.08em] text-[#71808a]">
+                  {t.language.menuLabel}
+                </p>
+                {localeOptions.map((option) => (
+                  <button
+                    key={option.code}
+                    type="button"
+                    className={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-sm font-bold transition hover:bg-[#f2eee5] ${
+                      locale === option.code ? "bg-[#fff1e9] text-[#d83d1d]" : "text-[#243746]"
+                    }`}
+                    onClick={() => changeLanguage(option.code)}
+                    aria-pressed={locale === option.code}
+                  >
+                    <span className="flex items-center gap-3">
+                      <span className="text-lg" aria-hidden="true">{option.flag}</span>
+                      <span>{option.label}</span>
+                    </span>
+                    {locale === option.code && <HiCheck className="text-lg" aria-hidden="true" />}
+                  </button>
+                ))}
+              </div>
+            )}
+            <button
+              type="button"
+              className={`flex size-[52px] items-center justify-center rounded-full border text-xl shadow-[0_15px_45px_rgba(7,24,40,.28)] transition hover:-translate-y-0.5 active:scale-95 ${
+                languageOpen
+                  ? "border-[#ffc14f] bg-[#0d3048]"
+                  : "border-white/20 bg-[#071828] hover:bg-[#0d3048]"
+              }`}
+              onClick={() => setLanguageOpen((open) => !open)}
+              aria-expanded={languageOpen}
+              aria-controls="language-menu"
+              aria-label={`${t.language.button}: ${currentLanguage.label}`}
+              title={currentLanguage.label}
+            >
+              <span aria-hidden="true">{currentLanguage.flag}</span>
+            </button>
+          </div>
         </div>
       </div>
 
