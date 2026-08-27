@@ -6,7 +6,6 @@ import { type FormEvent, type ReactNode, useEffect, useRef, useState } from "rea
 import { FaInstagram } from "react-icons/fa";
 import {
   HiCheck,
-  HiChevronUp,
   HiOutlineEnvelope,
   HiOutlineMapPin,
   HiOutlinePhone,
@@ -935,7 +934,7 @@ export default function Home() {
             ))}
           </div>
         )}
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col items-center gap-3">
           <a
             className="flex size-[52px] items-center justify-center rounded-full bg-[#ff4e27] text-2xl text-white shadow-[0_15px_45px_rgba(255,78,39,.3)] transition hover:-translate-y-0.5 hover:bg-[#f04420] active:scale-95"
             href={floatingMapUrl}
@@ -954,22 +953,22 @@ export default function Home() {
           >
             <HiOutlinePhone aria-hidden="true" />
           </a>
+          <button
+            type="button"
+            className={`flex size-[52px] items-center justify-center rounded-full border text-xl shadow-[0_15px_45px_rgba(7,24,40,.28)] transition hover:-translate-y-0.5 active:scale-95 ${
+              languageOpen
+                ? "border-[#ffc14f] bg-[#0d3048]"
+                : "border-white/20 bg-[#071828] hover:bg-[#0d3048]"
+            }`}
+            onClick={() => setLanguageOpen((open) => !open)}
+            aria-expanded={languageOpen}
+            aria-controls="language-menu"
+            aria-label={`${t.language.button}: ${currentLanguage.label}`}
+            title={currentLanguage.label}
+          >
+            <span aria-hidden="true">{currentLanguage.flag}</span>
+          </button>
         </div>
-        <button
-          type="button"
-          className="flex min-h-12 items-center gap-2 rounded-full border border-white/20 bg-[#071828] px-4 py-3 text-sm font-black text-white shadow-[0_15px_45px_rgba(7,24,40,.28)] transition hover:-translate-y-0.5 hover:bg-[#0d3048]"
-          onClick={() => setLanguageOpen((open) => !open)}
-          aria-expanded={languageOpen}
-          aria-controls="language-menu"
-          aria-label={t.language.button}
-        >
-          <span className="text-lg" aria-hidden="true">{currentLanguage.flag}</span>
-          <span>{currentLanguage.shortLabel}</span>
-          <HiChevronUp
-            className={`text-base transition ${languageOpen ? "rotate-180" : ""}`}
-            aria-hidden="true"
-          />
-        </button>
       </div>
 
       <script
