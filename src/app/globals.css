@@ -19,6 +19,10 @@ body {
   color: var(--foreground);
   font-family: Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
   overflow-x: hidden;
+  overflow-wrap: break-word;
+}
+
+html[lang="ko"] body {
   word-break: keep-all;
 }
 
