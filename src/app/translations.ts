@@ -6,6 +6,7 @@ export type Translation = {
   navLabel: string;
   nav: { about: string; trips: string; location: string };
   call: string;
+  hoursLabel: string;
   hero: {
     eyebrow: string;
     title: [string, string];
@@ -113,6 +114,7 @@ export const translations: Record<Locale, Translation> = {
     navLabel: "주요 메뉴",
     nav: { about: "매장 소개", trips: "바다낚시", location: "오시는 길" },
     call: "전화 문의",
+    hoursLabel: "운영시간",
     hero: {
       eyebrow: "SINCE 2004 · NONSAN",
       title: ["낚시 준비는", "논산 대물낚시에서."],
@@ -239,6 +241,7 @@ export const translations: Record<Locale, Translation> = {
     navLabel: "Main navigation",
     nav: { about: "About us", trips: "Fishing trips", location: "Visit us" },
     call: "Call us",
+    hoursLabel: "Opening hours",
     hero: {
       eyebrow: "SINCE 2004 · NONSAN",
       title: ["Prepare for fishing", "at Nonsan Daemul Fishing."],
@@ -352,6 +355,7 @@ export const translations: Record<Locale, Translation> = {
     navLabel: "主菜单",
     nav: { about: "店铺介绍", trips: "出海垂钓", location: "到店路线" },
     call: "电话咨询",
+    hoursLabel: "营业时间",
     hero: {
       eyebrow: "2004年创立 · 论山",
       title: ["准备钓鱼，", "就到论山大物渔具店。"],
@@ -450,6 +454,7 @@ export const translations: Record<Locale, Translation> = {
     navLabel: "メインメニュー",
     nav: { about: "店舗紹介", trips: "海釣りツアー", location: "アクセス" },
     call: "電話する",
+    hoursLabel: "営業時間",
     hero: {
       eyebrow: "SINCE 2004 · NONSAN",
       title: ["釣りの準備なら、", "論山 大物釣具へ。"],
@@ -548,6 +553,7 @@ export const translations: Record<Locale, Translation> = {
     navLabel: "Menu chính",
     nav: { about: "Giới thiệu", trips: "Chuyến câu biển", location: "Đường đến cửa hàng" },
     call: "Gọi ngay",
+    hoursLabel: "Giờ mở cửa",
     hero: {
       eyebrow: "TỪ NĂM 2004 · NONSAN",
       title: ["Chuẩn bị đi câu,", "hãy đến Daemul Nonsan."],
@@ -646,6 +652,7 @@ export const translations: Record<Locale, Translation> = {
     navLabel: "Asosiy menyu",
     nav: { about: "Do‘kon haqida", trips: "Dengiz safari", location: "Manzil" },
     call: "Qo‘ng‘iroq qilish",
+    hoursLabel: "Ish vaqti",
     hero: {
       eyebrow: "2004-YILDAN BERI · NONSAN",
       title: ["Baliq oviga tayyorgarlik uchun", "Nonsan Daemulga keling."],
@@ -744,6 +751,7 @@ export const translations: Record<Locale, Translation> = {
     navLabel: "Главное меню",
     nav: { about: "О магазине", trips: "Морские выезды", location: "Как добраться" },
     call: "Позвонить",
+    hoursLabel: "Часы работы",
     hero: {
       eyebrow: "С 2004 ГОДА · НОНСАН",
       title: ["Подготовка к рыбалке —", "в Nonsan Daemul."],
@@ -842,6 +850,7 @@ export const translations: Record<Locale, Translation> = {
     navLabel: "ម៉ឺនុយចម្បង",
     nav: { about: "អំពីហាង", trips: "ដំណើរនេសាទសមុទ្រ", location: "ទីតាំងហាង" },
     call: "ទូរស័ព្ទ",
+    hoursLabel: "ម៉ោងបើក",
     hero: {
       eyebrow: "ចាប់តាំងពីឆ្នាំ 2004 · NONSAN",
       title: ["រៀបចំទៅនេសាទ", "សូមមក Nonsan Daemul។"],
@@ -940,6 +949,7 @@ export const translations: Record<Locale, Translation> = {
     navLabel: "ပင်မမီနူး",
     nav: { about: "ဆိုင်အကြောင်း", trips: "ပင်လယ်ငါးမျှားခရီး", location: "ဆိုင်လမ်းညွှန်" },
     call: "ဖုန်းခေါ်ရန်",
+    hoursLabel: "ဖွင့်ချိန်",
     hero: {
       eyebrow: "2004 မှစတင် · NONSAN",
       title: ["ငါးမျှားဖို့ ပြင်ဆင်တာဆို", "Nonsan Daemul ကိုလာပါ။"],

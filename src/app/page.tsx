@@ -6,6 +6,7 @@ import { type FormEvent, type ReactNode, useEffect, useRef, useState } from "rea
 import { FaInstagram } from "react-icons/fa";
 import {
   HiCheck,
+  HiOutlineClock,
   HiOutlineEnvelope,
   HiOutlineMapPin,
   HiOutlinePhone,
@@ -22,6 +23,7 @@ const blogUrl = "https://blog.naver.com/daemul4100";
 const emailRecipients = ["k0729047@hanmail.net", "daemul4100@naver.com"];
 const phoneNumber = "041-736-4100";
 const phoneHref = `tel:${phoneNumber}`;
+const businessHours = "07:30 - 24:00";
 const siteUrl = "https://nonsan-daemul.github.io/";
 
 const socialLinks = [
@@ -84,6 +86,7 @@ const jsonLd = {
       slogan: "논산시 최대 규모 낚시점, Since 2004",
       foundingDate: "2004",
       telephone: "+82-41-736-4100",
+      openingHours: businessHours,
       priceRange: "₩₩",
       brand: { "@type": "Brand", name: "바낙스" },
       address: {
@@ -308,9 +311,16 @@ export default function Home() {
             {t.hero.title[1]}
           </h1>
           <div className="mt-8 flex flex-col justify-between gap-7 border-t border-white/25 pt-6 md:flex-row md:items-end">
-            <p className="max-w-2xl text-base font-medium leading-7 text-white/80 md:text-lg">
-              {t.hero.description}
-            </p>
+            <div className="max-w-2xl">
+              <p className="text-base font-medium leading-7 text-white/80 md:text-lg">
+                {t.hero.description}
+              </p>
+              <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/20 px-4 py-2 text-sm font-black text-white/90 backdrop-blur-sm">
+                <HiOutlineClock className="text-base text-[#ffc14f]" aria-hidden="true" />
+                <span>{t.hoursLabel}</span>
+                <span className="text-[#ffc14f]">{businessHours}</span>
+              </p>
+            </div>
             <div className="flex w-full shrink-0 flex-col gap-3 sm:w-auto sm:flex-row">
               <a
                 className="flex w-full items-center justify-center gap-2 rounded-full bg-[#03c75a] px-6 py-3.5 text-center text-sm font-black text-white shadow-xl shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[#02b652] sm:w-auto"
@@ -830,6 +840,13 @@ export default function Home() {
                     {phoneNumber}
                   </a>
                 </address>
+                <div className="mt-5 flex items-center gap-2 rounded-2xl bg-white/[.07] px-4 py-3 text-sm">
+                  <HiOutlineClock className="shrink-0 text-lg text-[#ffc14f]" aria-hidden="true" />
+                  <span className="font-bold text-white/65">{t.hoursLabel}</span>
+                  <span className="ml-auto whitespace-nowrap font-black text-white">
+                    {businessHours}
+                  </span>
+                </div>
               </div>
               <div className="mt-12 space-y-3">
                 <a
@@ -857,6 +874,11 @@ export default function Home() {
             </p>
             <p className="mt-4 max-w-2xl text-sm font-medium leading-6 text-white/45">
               {t.location.address} · 041-736-4100
+            </p>
+            <p className="mt-2 flex items-center gap-2 text-sm font-bold text-white/55">
+              <HiOutlineClock className="text-base text-[#ffc14f]" aria-hidden="true" />
+              {t.hoursLabel}
+              <span className="font-black text-[#ffc14f]">{businessHours}</span>
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
