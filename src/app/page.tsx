@@ -1,12 +1,17 @@
 "use client";
 
 import Image from "next/image";
+import CountUpFact from "./CountUpFact";
+import TripStory from "./TripStory";
+import { tripStoryCopy } from "./trip-story-copy";
 import { LazyMotion, MotionConfig, domAnimation, m } from "framer-motion";
 import { LuFish, LuMessagesSquare, LuWrench } from "react-icons/lu";
 import { type FormEvent, useEffect, useRef, useState } from "react";
 import { FaInstagram } from "react-icons/fa";
 import {
   HiCheck,
+  HiOutlineArrowDown,
+  HiOutlineArrowUpRight,
   HiOutlineClock,
   HiOutlineEnvelope,
   HiOutlineMapPin,
@@ -247,7 +252,9 @@ export default function Home() {
         <main>
           <section className="hero" aria-labelledby="hero-title">
             <div className="hero-art">
-              <Image src="/images/fishing-reel.webp" alt="" fill priority sizes="(max-width: 760px) 100vw, 50vw" />
+              <m.div className="hero-image" initial={{ scale: 1.035 }} animate={{ scale: 1 }} transition={{ duration: 1.3, ease: "easeOut" }}>
+                <Image src="/images/fishing-reel.webp" alt="" fill priority sizes="(max-width: 760px) 100vw, 50vw" />
+              </m.div>
             </div>
             <div className="wrap hero-inner">
               <m.div className="hero-copy" initial={{ y: 10 }} animate={{ y: 0 }} transition={{ duration: 0.45 }}>
@@ -266,16 +273,16 @@ export default function Home() {
           <div className="facts-band">
             <dl className="wrap facts">
               {stats.map((value, index) => (
-                <div key={value}><dt>{t.about.stats[index]}</dt><dd>{value}</dd></div>
+                <div key={value}><dt>{t.about.stats[index]}</dt><dd><CountUpFact value={value} /></dd></div>
               ))}
             </dl>
           </div>
 
           <section id="services" className="section wrap">
-            <div className="section-heading">
-              <div><p className="section-label">{t.services.eyebrow}</p><h2>{t.services.title.join(" ")}</h2></div>
+            <m.div className="section-heading" {...scrollReveal}>
+              <h2>{t.services.title.join(" ")}</h2>
               <p>{t.services.description}</p>
-            </div>
+            </m.div>
             <div className="services">
               {t.services.items.map((item, index) => {
                 const Icon = serviceIcons[index];
@@ -326,6 +333,7 @@ export default function Home() {
                 <div className="actions">
                   <a className="button gold" href={phoneHref}><HiOutlinePhone />{t.trips.inquiry}</a>
                   <a className="button light-outline" href={blogUrl} {...externalLink}>{t.trips.news}</a>
+                  <a className="story-jump" href="#trip-story"><HiOutlineArrowDown aria-hidden="true" />{tripStoryCopy[locale].title}</a>
                 </div>
               </div>
               <m.figure {...scrollReveal}>
@@ -335,39 +343,41 @@ export default function Home() {
             </div>
           </section>
 
+          <TripStory locale={locale} />
+
           <section className="section wrap social" aria-labelledby="social-heading">
             <p className="section-label">{t.social.eyebrow}</p>
             <h2 id="social-heading">{t.social.title}</h2>
-            <div className="channels">
+            <m.div className="channels" {...scrollReveal}>
               {socialLinks.map(({href, icon: Icon, iconClass}, i) => (
                 <a key={href} href={href} {...externalLink} aria-label={`${t.social.labels[i]} · ${t.social.handles[i]} · ${t.social.openNewTab}`}>
                   <span className={`channel-icon ${iconClass}`}><Icon aria-hidden="true" /></span>
                   <span><strong>{t.social.labels[i]}</strong><small>{t.social.handles[i]}</small></span>
+                  <HiOutlineArrowUpRight className="channel-arrow" aria-hidden="true" />
                 </a>
               ))}
-            </div>
+            </m.div>
           </section>
 
           <section className="section mist" aria-labelledby="email-heading">
             <div className="wrap split mail">
               <div>
-                <p className="section-label">{t.email.eyebrow}</p>
                 <h2 id="email-heading">{t.email.title.join(" ")}</h2>
                 <p className="prose">{t.email.description}</p>
               </div>
-              <form onSubmit={openEmailApp}>
+              <m.form onSubmit={openEmailApp} {...scrollReveal}>
                 <label>{t.email.senderLabel}<input type="email" autoComplete="email" required value={senderEmail} onChange={e => setSenderEmail(e.target.value)} placeholder={t.email.senderPlaceholder} /></label>
                 <label>{t.email.subjectLabel}<input type="text" required value={emailSubject} onChange={e => setEmailSubject(e.target.value)} placeholder={t.email.subject} /></label>
                 <label>{t.email.messageLabel}<textarea rows={4} required value={emailMessage} onChange={e => setEmailMessage(e.target.value)} placeholder={t.email.messagePlaceholder} /></label>
                 <button className="button pine" type="submit"><HiOutlineEnvelope />{t.email.cta}</button>
                 <p className="form-note">{t.email.note}</p>
-              </form>
+              </m.form>
             </div>
           </section>
 
           <section id="location" className="section wrap">
-            <p className="section-label">{t.nav.location}</p><h2>{t.location.title.join(" ")}</h2>
-            <div className="location-panel">
+            <h2>{t.location.title.join(" ")}</h2>
+            <m.div className="location-panel" {...scrollReveal}>
               <iframe title={t.location.mapTitle} loading="lazy" referrerPolicy="no-referrer-when-downgrade"
                 src="https://maps.google.com/maps?q=%EC%B6%A9%EC%B2%AD%EB%82%A8%EB%8F%84%20%EB%85%BC%EC%82%B0%EC%8B%9C%20%EA%B0%95%EB%B3%80%EB%A1%9C308%EB%B2%88%EA%B8%B8%2048&t=&z=16&ie=UTF8&iwloc=&output=embed" />
               <div className="visit">
@@ -376,11 +386,11 @@ export default function Home() {
                 <p className="hours"><HiOutlineClock />{t.hoursLabel} <strong>{businessHours}</strong></p>
                 <a className="button gold" href={mapUrl} {...externalLink}><HiOutlineMapPin />{t.location.mapCta}</a>
               </div>
-            </div>
+            </m.div>
           </section>
         </main>
         <footer>
-          <div className="wrap footer-inner">
+          <m.div className="wrap footer-inner" {...scrollReveal}>
             <div><p className="wordmark">{t.brand} <small>Since 2004</small></p>
               <p>{t.location.address} · {phoneNumber}</p><p>{t.hoursLabel} {businessHours}</p>
             </div>
@@ -391,7 +401,7 @@ export default function Home() {
               <a href={mapUrl} {...externalLink} aria-label={t.footer.map} title={t.footer.map}><HiOutlineMapPin /></a>
               <a href={phoneHref} aria-label={t.footer.call} title={t.footer.call}><HiOutlinePhone /></a>
             </div>
-          </div>
+          </m.div>
         </footer>
 
         <div className="shortcuts">
