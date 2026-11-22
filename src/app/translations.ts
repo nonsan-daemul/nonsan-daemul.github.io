@@ -18,7 +18,7 @@ export type Translation = {
     eyebrow: string;
     title: [string, string];
     description: string;
-    stats: [string, string, string, string];
+    stats: [string, string, string, string, string];
     storeAlt: string;
     caption: string;
     parking: string;
@@ -61,7 +61,7 @@ export type Translation = {
   };
   email: {
     eyebrow: string;
-    title: [string, string];
+    title: string;
     description: string;
     topics: [string, string, string];
     senderLabel: string;
@@ -71,7 +71,6 @@ export type Translation = {
     messagePlaceholder: string;
     replyToLabel: string;
     cta: string;
-    note: string;
     subject: string;
   };
   location: {
@@ -128,7 +127,7 @@ export const translations: Record<Locale, Translation> = {
       title: ["우리도 낚시를 좋아해요.", "그래서 잘 알아요."],
       description:
         "우리도 직접 바다에 가요. 그래서 어떤 날, 어떤 도구가 필요한지 잘 알아요. 처음 오신 분도 어렵지 않게 알려드릴게요.",
-      stats: ["매장 오픈", "낚시 경험", "출조 보트", "맞춤 상담"],
+      stats: ["매장 오픈", "낚시 경험", "출조 보트", "출조 횟수", "맞춤 상담"],
       storeAlt: "넓은 주차 공간을 갖춘 논산 대물낚시 매장 외관",
       caption: "편하게 보고, 궁금하면 물어보세요.",
       parking: "매장 앞 넓은 주차 공간",
@@ -206,7 +205,7 @@ export const translations: Record<Locale, Translation> = {
     },
     email: {
       eyebrow: "이메일 문의",
-      title: ["궁금한 점을", "메일로 보내주세요."],
+      title: "궁금한 점이 있다면 문의주세요.",
       description: "필요한 물건이 있는지, 낚싯대를 고칠 수 있는지, 언제 바다에 가는지 물어보세요. 확인하고 답장해드릴게요.",
       topics: ["물건이 있나요?", "낚싯대를 고칠 수 있나요?", "언제 바다에 가나요?"],
       senderLabel: "내 이메일",
@@ -216,7 +215,6 @@ export const translations: Record<Locale, Translation> = {
       messagePlaceholder: "궁금한 내용을 적어주세요",
       replyToLabel: "답장받을 이메일",
       cta: "메일 보내기",
-      note: "버튼을 누르면 메일 앱에 받는 사람과 작성한 내용이 채워져요. 내용을 확인하고 메일 앱에서 보내주세요.",
       subject: "[논산 대물낚시] 문의합니다",
     },
     location: {
@@ -255,7 +253,7 @@ export const translations: Record<Locale, Translation> = {
       title: ["We love fishing too,", "so we know the water."],
       description:
         "We head out to sea ourselves, so we know which gear works best for each day. If it’s your first time, we’ll explain everything in a simple way.",
-      stats: ["Shop opened", "Years of fishing experience", "Seats on our fishing boat", "Personal advice"],
+      stats: ["Shop opened", "Years of fishing experience", "Seats on our fishing boat", "Fishing trips", "Personal advice"],
       storeAlt: "Daemul Fishing storefront in Nonsan with spacious parking",
       caption: "Take your time, look around, and ask away.",
       parking: "Spacious parking in front",
@@ -320,7 +318,7 @@ export const translations: Record<Locale, Translation> = {
     },
     email: {
       eyebrow: "EMAIL ENQUIRIES",
-      title: ["Send us your", "fishing questions"],
+      title: "Have a question? Get in touch.",
       description: "Ask about product availability, fishing rod repairs, or upcoming sea trips. We will check your message and get back to you.",
       topics: ["Product stock", "Rod repairs", "Fishing trips"],
       senderLabel: "Your email",
@@ -330,7 +328,6 @@ export const translations: Record<Locale, Translation> = {
       messagePlaceholder: "Tell us what you would like to ask",
       replyToLabel: "Reply email",
       cta: "Send email",
-      note: "This opens your email app with both addresses and your message filled in. Review your message there and tap Send.",
       subject: "[Nonsan Daemul Fishing] Enquiry",
     },
     location: {
@@ -367,7 +364,7 @@ export const translations: Record<Locale, Translation> = {
       eyebrow: "关于大物渔具",
       title: ["因为我们也爱钓鱼，", "所以更懂现场需要。"],
       description: "我们也会亲自出海，所以很清楚不同天气需要哪些装备。第一次来钓鱼也不用担心，我们会用简单易懂的方式告诉您。",
-      stats: ["开店年份", "垂钓经验（年）", "钓船座位数", "专属咨询"],
+      stats: ["开店年份", "垂钓经验（年）", "钓船座位数", "出海垂钓次数", "专属咨询"],
       storeAlt: "设有宽敞停车场的论山大物渔具店外景",
       caption: "慢慢挑，有问题随时问我们。",
       parking: "店门前宽敞停车位",
@@ -419,7 +416,7 @@ export const translations: Record<Locale, Translation> = {
     },
     email: {
       eyebrow: "邮件咨询",
-      title: ["有问题，", "欢迎发邮件给我们。"],
+      title: "有任何问题，欢迎联系我们。",
       description: "无论是商品库存、钓竿维修还是出钓安排，都可以提前来信咨询。我们确认后会尽快回复。",
       topics: ["商品库存", "钓竿维修", "出钓咨询"],
       senderLabel: "您的邮箱",
@@ -429,7 +426,6 @@ export const translations: Record<Locale, Translation> = {
       messagePlaceholder: "请输入想咨询的内容",
       replyToLabel: "回复邮箱",
       cta: "发送邮件",
-      note: "点击按钮后，邮件应用会自动填好两个收件地址和您的留言。请确认内容后在邮件应用中发送。",
       subject: "[论山大物渔具店] 邮件咨询",
     },
     location: {
@@ -466,7 +462,7 @@ export const translations: Record<Locale, Translation> = {
       eyebrow: "大物釣具について",
       title: ["私たちも釣りが好きだから、", "現場のことが分かります。"],
       description: "私たちも実際に海へ出るので、その日にどんな道具が必要かよく分かります。初めての方にも、難しくないよう分かりやすくご案内します。",
-      stats: ["開店年", "釣りの経験年数", "釣り船の定員（人）", "個別相談"],
+      stats: ["開店年", "釣りの経験年数", "釣り船の定員（人）", "釣行回数", "個別相談"],
       storeAlt: "広い駐車場を備えた論山大物釣具の外観",
       caption: "ゆっくり見て、気軽にご相談ください。",
       parking: "店舗前に広い駐車スペース",
@@ -518,7 +514,7 @@ export const translations: Record<Locale, Translation> = {
     },
     email: {
       eyebrow: "メールでのお問い合わせ",
-      title: ["ご質問は", "メールでどうぞ"],
+      title: "ご不明な点はお気軽にお問い合わせください。",
       description: "商品の在庫、釣り竿の修理、釣行予定など、事前に確認したいことをお送りください。確認後にご返信します。",
       topics: ["商品の在庫", "釣り竿の修理", "釣行のお問い合わせ"],
       senderLabel: "あなたのメールアドレス",
@@ -528,7 +524,6 @@ export const translations: Record<Locale, Translation> = {
       messagePlaceholder: "お問い合わせ内容をご入力ください",
       replyToLabel: "返信先メールアドレス",
       cta: "メールを送る",
-      note: "ボタンを押すと、宛先と本文を入力した状態でメールアプリが開きます。内容を確認し、アプリで送信してください。",
       subject: "[論山 大物釣具] メールでのお問い合わせ",
     },
     location: {
@@ -565,7 +560,7 @@ export const translations: Record<Locale, Translation> = {
       eyebrow: "CÂU CHUYỆN DAEMUL",
       title: ["Chúng tôi cũng mê câu cá,", "nên hiểu rõ thực tế."],
       description: "Chúng tôi cũng trực tiếp ra biển nên biết ngày nào cần dụng cụ gì. Người mới đến lần đầu cũng sẽ được hướng dẫn thật dễ hiểu.",
-      stats: ["Năm mở cửa", "Số năm kinh nghiệm", "Số chỗ trên thuyền câu", "Tư vấn riêng"],
+      stats: ["Năm mở cửa", "Số năm kinh nghiệm", "Số chỗ trên thuyền câu", "Số chuyến đi câu", "Tư vấn riêng"],
       storeAlt: "Cửa hàng Daemul Fishing ở Nonsan với bãi đỗ xe rộng",
       caption: "Cứ xem thoải mái và hỏi chúng tôi nhé.",
       parking: "Bãi đỗ xe rộng trước cửa hàng",
@@ -617,7 +612,7 @@ export const translations: Record<Locale, Translation> = {
     },
     email: {
       eyebrow: "LIÊN HỆ QUA EMAIL",
-      title: ["Gửi câu hỏi", "qua email"],
+      title: "Bạn có thắc mắc? Hãy liên hệ với chúng tôi.",
       description: "Bạn có thể hỏi trước về hàng còn trong kho, sửa cần câu hoặc lịch đi câu biển. Chúng tôi sẽ kiểm tra và phản hồi.",
       topics: ["Hàng còn trong kho", "Sửa cần câu", "Chuyến câu biển"],
       senderLabel: "Email của bạn",
@@ -627,7 +622,6 @@ export const translations: Record<Locale, Translation> = {
       messagePlaceholder: "Nhập nội dung bạn muốn hỏi",
       replyToLabel: "Email nhận phản hồi",
       cta: "Gửi email",
-      note: "Khi bạn nhấn nút, ứng dụng email sẽ mở với địa chỉ người nhận và nội dung đã điền sẵn. Hãy kiểm tra rồi nhấn gửi trong ứng dụng.",
       subject: "[Daemul Fishing Nonsan] Yêu cầu tư vấn",
     },
     location: {
@@ -664,7 +658,7 @@ export const translations: Record<Locale, Translation> = {
       eyebrow: "BIZ HAQIMIZDA",
       title: ["Biz ham baliq ovini sevamiz,", "shuning uchun amaliyotni bilamiz."],
       description: "Biz ham o‘zimiz dengizga chiqamiz, shuning uchun qaysi kunda qanday jihoz kerakligini yaxshi bilamiz. Birinchi marta kelganlarga ham hammasini sodda qilib tushuntiramiz.",
-      stats: ["Do‘kon ochildi", "20 yildan ortiq tajriba", "Baliq ovi safari qayig‘i", "Shaxsiy maslahat"],
+      stats: ["Do‘kon ochildi", "20 yildan ortiq tajriba", "Baliq ovi safari qayig‘i", "Baliq ovi safarlari soni", "Shaxsiy maslahat"],
       storeAlt: "Keng avtoturargohli Nonsan Daemul Fishing do‘koni",
       caption: "Bemalol ko‘ring va istagan savolingizni bering.",
       parking: "Do‘kon oldida keng avtoturargoh",
@@ -716,7 +710,7 @@ export const translations: Record<Locale, Translation> = {
     },
     email: {
       eyebrow: "EMAIL ORQALI BOG‘LANISH",
-      title: ["Savolingiz bormi?", "Bizga email yuboring."],
+      title: "Savolingiz bo‘lsa, biz bilan bog‘laning.",
       description: "Mahsulot mavjudligi, qarmoq tayoqchasini ta’mirlash yoki dengiz safari haqida oldindan so‘rashingiz mumkin. Xabaringizni ko‘rib, javob beramiz.",
       topics: ["Mahsulot mavjudligi", "Tayoqcha ta’miri", "Dengiz safari"],
       senderLabel: "Email manzilingiz",
@@ -726,7 +720,6 @@ export const translations: Record<Locale, Translation> = {
       messagePlaceholder: "Savolingizni yozing",
       replyToLabel: "Javob emaili",
       cta: "Email yuborish",
-      note: "Tugmani bossangiz, xat va qabul qiluvchilar pochta ilovasida tayyor turadi. Xatni tekshirib, ilovadan yuboring.",
       subject: "[Nonsan Daemul Fishing] Murojaat",
     },
     location: {
@@ -763,7 +756,7 @@ export const translations: Record<Locale, Translation> = {
       eyebrow: "О НАС",
       title: ["Мы тоже любим рыбалку", "и знаем её на практике."],
       description: "Мы сами выходим в море, поэтому хорошо знаем, какие снасти нужны в разные дни. Тем, кто пришёл впервые, всё объясним просто и понятно.",
-      stats: ["Магазин открыт", "Более 20 лет опыта", "Лодка для рыболовных выездов", "Персональная консультация"],
+      stats: ["Магазин открыт", "Более 20 лет опыта", "Лодка для рыболовных выездов", "Выезды на рыбалку", "Персональная консультация"],
       storeAlt: "Магазин Daemul Fishing в Нонсане с большой парковкой",
       caption: "Смотрите не спеша и смело задавайте вопросы.",
       parking: "Большая парковка перед магазином",
@@ -815,7 +808,7 @@ export const translations: Record<Locale, Translation> = {
     },
     email: {
       eyebrow: "СВЯЗАТЬСЯ ПО EMAIL",
-      title: ["Остались вопросы?", "Напишите нам по электронной почте."],
+      title: "Есть вопросы? Свяжитесь с нами.",
       description: "Можно заранее уточнить наличие товара, ремонт удилища или расписание морских выездов. Мы прочитаем сообщение и ответим.",
       topics: ["Наличие товара", "Ремонт удилищ", "Морские выезды"],
       senderLabel: "Ваш email",
@@ -825,7 +818,6 @@ export const translations: Record<Locale, Translation> = {
       messagePlaceholder: "Напишите свой вопрос",
       replyToLabel: "Email для ответа",
       cta: "Отправить письмо",
-      note: "Кнопка откроет письмо с вашим текстом и адресами получателей. Проверьте письмо и отправьте его из почтового приложения.",
       subject: "[Nonsan Daemul Fishing] Вопрос",
     },
     location: {
@@ -862,7 +854,7 @@ export const translations: Record<Locale, Translation> = {
       eyebrow: "អំពីយើង",
       title: ["យើងក៏ស្រឡាញ់ការនេសាទ", "ហើយយល់ពីបទពិសោធន៍ជាក់ស្តែង។"],
       description: "យើងក៏ទៅសមុទ្រនេសាទដោយផ្ទាល់ ដូច្នេះយើងដឹងថាថ្ងៃណា និងឧបករណ៍ណាត្រូវការ។ អ្នកមកដំបូងក៏មិនបាច់បារម្ភទេ យើងនឹងពន្យល់ឲ្យងាយយល់។",
-      stats: ["ហាងបើកដំណើរការ", "បទពិសោធន៍ជាង 20 ឆ្នាំ", "ទូកសម្រាប់ដំណើរនេសាទ", "ការប្រឹក្សាផ្ទាល់ខ្លួន"],
+      stats: ["ហាងបើកដំណើរការ", "បទពិសោធន៍ជាង 20 ឆ្នាំ", "ទូកសម្រាប់ដំណើរនេសាទ", "ចំនួនដំណើរនេសាទ", "ការប្រឹក្សាផ្ទាល់ខ្លួន"],
       storeAlt: "ហាង Daemul Fishing នៅ Nonsan ដែលមានចំណតធំទូលាយ",
       caption: "សូមមើលដោយស្រួល ហើយសួរយើងបានគ្រប់ពេល។",
       parking: "ចំណតធំទូលាយនៅមុខហាង",
@@ -914,7 +906,7 @@ export const translations: Record<Locale, Translation> = {
     },
     email: {
       eyebrow: "សាកសួរតាមអ៊ីមែល",
-      title: ["មានសំណួរមែនទេ?", "សូមផ្ញើអ៊ីមែលមកយើង។"],
+      title: "បើមានសំណួរ សូមទាក់ទងមកយើង។",
       description: "អ្នកអាចសួរអំពីស្តុកសម្ភារៈ ការជួសជុលដងសន្ទូច ឬកាលវិភាគដំណើរនេសាទសមុទ្រ។ យើងនឹងពិនិត្យ ហើយឆ្លើយតប។",
       topics: ["ស្តុកសម្ភារៈ", "ជួសជុលដង", "ដំណើរសមុទ្រ"],
       senderLabel: "អ៊ីមែលរបស់អ្នក",
@@ -924,7 +916,6 @@ export const translations: Record<Locale, Translation> = {
       messagePlaceholder: "សរសេរសំណួររបស់អ្នក",
       replyToLabel: "អ៊ីមែលសម្រាប់ឆ្លើយតប",
       cta: "ផ្ញើអ៊ីមែល",
-      note: "ចុចប៊ូតុងដើម្បីបើកកម្មវិធីអ៊ីមែល។ សារ និងអាសយដ្ឋានអ្នកទទួលនឹងមានស្រាប់។ សូមពិនិត្យសារ រួចចុចផ្ញើក្នុងកម្មវិធី។",
       subject: "[Nonsan Daemul Fishing] សំណួរ",
     },
     location: {
@@ -961,7 +952,7 @@ export const translations: Record<Locale, Translation> = {
       eyebrow: "ကျွန်ုပ်တို့အကြောင်း",
       title: ["ကျွန်ုပ်တို့လည်း ငါးမျှားရတာကြိုက်လို့", "လက်တွေ့ကို ကောင်းကောင်းသိပါတယ်။"],
       description: "ကျွန်ုပ်တို့လည်း ကိုယ်တိုင်ပင်လယ်ထွက်တာကြောင့် ဘယ်နေ့မှာ ဘယ်ပစ္စည်းလိုအပ်တယ်ဆိုတာ ကောင်းကောင်းသိပါတယ်။ ပထမဆုံးလာသူကိုလည်း နားလည်လွယ်အောင် ရှင်းပြပေးပါတယ်။",
-      stats: ["ဆိုင်ဖွင့်ခြင်း", "နှစ် 20 ကျော်အတွေ့အကြုံ", "ငါးမျှားခရီးသွားလှေ", "ကိုယ်ပိုင်အကြံပေးမှု"],
+      stats: ["ဆိုင်ဖွင့်ခြင်း", "နှစ် 20 ကျော်အတွေ့အကြုံ", "ငါးမျှားခရီးသွားလှေ", "ငါးမျှားခရီးအရေအတွက်", "ကိုယ်ပိုင်အကြံပေးမှု"],
       storeAlt: "ကားရပ်ရန်နေရာကျယ်သော Nonsan Daemul Fishing ဆိုင်",
       caption: "အေးအေးဆေးဆေးကြည့်ပြီး လွတ်လွတ်လပ်လပ်မေးပါ။",
       parking: "ဆိုင်ရှေ့ကားရပ်ရန်နေရာကျယ်",
@@ -1013,7 +1004,7 @@ export const translations: Record<Locale, Translation> = {
     },
     email: {
       eyebrow: "အီးမေးလ်ဖြင့်မေးမြန်းရန်",
-      title: ["မေးစရာရှိပါသလား?", "အီးမေးလ်ပို့လို့လည်း ရပါတယ်။"],
+      title: "မေးစရာရှိရင် ဆက်သွယ်လိုက်ပါ။",
       description: "ပစ္စည်းလက်ကျန်၊ ငါးမျှားတံပြုပြင်ခြင်း သို့မဟုတ် ပင်လယ်ခရီးအစီအစဉ်ကို ကြိုတင်မေးမြန်းနိုင်ပါတယ်။ စာကိုစစ်ဆေးပြီး ပြန်လည်ဖြေကြားပေးပါမယ်။",
       topics: ["ပစ္စည်းလက်ကျန်", "တံပြုပြင်ခြင်း", "ပင်လယ်ခရီး"],
       senderLabel: "သင့်အီးမေးလ်",
@@ -1023,7 +1014,6 @@ export const translations: Record<Locale, Translation> = {
       messagePlaceholder: "မေးလိုသည့်အကြောင်းအရာကို ရေးပါ",
       replyToLabel: "အကြောင်းပြန်မည့်အီးမေးလ်",
       cta: "အီးမေးလ်ပို့ရန်",
-      note: "ခလုတ်ကို နှိပ်ရင် သင်ရေးထားတဲ့စာနဲ့ လက်ခံသူလိပ်စာတွေ ပါပြီးသား အီးမေးလ် ပွင့်လာပါမယ်။ စာကိုစစ်ပြီး အီးမေးလ်အက်ပ်ထဲမှာ ပို့ပါ။",
       subject: "[Nonsan Daemul Fishing] မေးမြန်းချက်",
     },
     location: {

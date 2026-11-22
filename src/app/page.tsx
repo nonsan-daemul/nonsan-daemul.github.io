@@ -175,7 +175,7 @@ export default function Home() {
   const t = translations[locale];
   const currentLanguage = localeOptions.find((option) => option.code === locale)!;
   const languageButton = useRef<HTMLButtonElement>(null);
-  const stats = locale === "ko" ? ["2004", "20년+", "10인승", "1:1"] : ["2004", "20+", "10", "1:1"];
+  const stats = ["2004", locale === "ko" ? "20년+" : "20+", locale === "ko" ? "10인승" : "10", "100+", "1:1"];
 
   useEffect(() => {
     const savedLocale = window.localStorage.getItem("daemul-language");
@@ -362,7 +362,7 @@ export default function Home() {
           <section className="section mist" aria-labelledby="email-heading">
             <div className="wrap split mail">
               <div>
-                <h2 id="email-heading">{t.email.title.join(" ")}</h2>
+                <h2 id="email-heading">{t.email.title}</h2>
                 <p className="prose">{t.email.description}</p>
               </div>
               <m.form onSubmit={openEmailApp} {...scrollReveal}>
@@ -370,7 +370,6 @@ export default function Home() {
                 <label>{t.email.subjectLabel}<input type="text" required value={emailSubject} onChange={e => setEmailSubject(e.target.value)} placeholder={t.email.subject} /></label>
                 <label>{t.email.messageLabel}<textarea rows={4} required value={emailMessage} onChange={e => setEmailMessage(e.target.value)} placeholder={t.email.messagePlaceholder} /></label>
                 <button className="button pine" type="submit"><HiOutlineEnvelope />{t.email.cta}</button>
-                <p className="form-note">{t.email.note}</p>
               </m.form>
             </div>
           </section>

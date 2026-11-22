@@ -70,7 +70,7 @@ p, label, dt, dd { margin: 0; }
 .hours strong { font-weight: 700; white-space: nowrap; }
 
 .facts-band { background: #f1f4ed; border-bottom: 1px solid var(--line); }
-.facts { display: grid; grid-template-columns: repeat(4, 1fr); padding-block: 1.65rem; }
+.facts { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding-block: 1.65rem; }
 .facts > div { display: flex; flex-direction: column-reverse; justify-content: end; padding-inline: clamp(.8rem, 3vw, 3rem); border-left: 1px solid var(--line); }
 .facts > div:first-child { border: 0; padding-left: 0; }
 .facts dt { color: var(--muted); font-weight: 650; }
@@ -114,7 +114,6 @@ details[open] .toggle-mark::before { content: "−"; }
 .mail input, .mail textarea { display: block; width: 100%; margin-top: .35rem; padding: .72rem .9rem; color: var(--ink); font-weight: 450; border: 1px solid #879b95; border-radius: .35rem; background: #fcfdfb; }
 .mail textarea { resize: vertical; }
 .mail input::placeholder, .mail textarea::placeholder { color: #637674; }
-.form-note { margin-top: .8rem; line-height: 1.6; font-size: .9375rem; color: var(--muted); }
 .location-panel { display: grid; grid-template-columns: 1.5fr 1fr; border-radius: .65rem; overflow: hidden; background: var(--pine); margin-top: 2rem; }
 .location-panel iframe { display: block; width: 100%; height: 100%; min-height: 20rem; border: 0; background: #dae4df; }
 .visit { padding: clamp(1.4rem, 3.6vw, 3.5rem); color: white; }
